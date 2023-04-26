@@ -68,44 +68,34 @@
 
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
-            <li class="menu-item active">
-              <a href="index.html" class="menu-link">
+            <li class="menu-item" id="adminhome">
+              <a href="/adminhome" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
               </a>
             </li>
 
             <!-- Layouts -->
-            <li class="menu-item">
+            <li class="menu-item" id="adminproducts">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-layout"></i>
-                <div data-i18n="Layouts">Layouts</div>
+                <i class="menu-icon tf-icons bx bxs-shopping-bags"></i>
+                <div data-i18n="Layouts">Products</div>
               </a>
 
               <ul class="menu-sub">
                 <li class="menu-item">
                   <a href="layouts-without-menu.html" class="menu-link">
-                    <div data-i18n="Without menu">Without menu</div>
+                    <div data-i18n="Without menu">Add Product</div>
                   </a>
                 </li>
                 <li class="menu-item">
                   <a href="layouts-without-navbar.html" class="menu-link">
-                    <div data-i18n="Without navbar">Without navbar</div>
+                    <div data-i18n="Without navbar">Edit product</div>
                   </a>
                 </li>
                 <li class="menu-item">
                   <a href="layouts-container.html" class="menu-link">
-                    <div data-i18n="Container">Container</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="layouts-fluid.html" class="menu-link">
-                    <div data-i18n="Fluid">Fluid</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="layouts-blank.html" class="menu-link">
-                    <div data-i18n="Blank">Blank</div>
+                    <div data-i18n="Container">Remove Product</div>
                   </a>
                 </li>
               </ul>
@@ -114,29 +104,36 @@
             
 
             <!-- Extended components -->
-            <li class="menu-item">
+            <li class="menu-item" id="adminorders">
               <a href="javascript:void(0)" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-copy"></i>
-                <div data-i18n="Extended UI">Extended UI</div>
+                <i class="menu-icon tf-icons bx bx-purchase-tag"></i>
+                <div data-i18n="Extended UI">Orders</div>
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
                   <a href="extended-ui-perfect-scrollbar.html" class="menu-link">
-                    <div data-i18n="Perfect Scrollbar">Perfect scrollbar</div>
+                    <div data-i18n="Perfect Scrollbar">Orders Placed</div>
                   </a>
                 </li>
                 <li class="menu-item">
                   <a href="extended-ui-text-divider.html" class="menu-link">
-                    <div data-i18n="Text Divider">Text Divider</div>
+                    <div data-i18n="Text Divider">Canceled Orders</div>
                   </a>
                 </li>
               </ul>
             </li>
 
-            <li class="menu-item">
+            <li class="menu-item" id="admintrans">
               <a href="icons-boxicons.html" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-crown"></i>
-                <div data-i18n="Boxicons">Boxicons</div>
+                <i class="menu-icon tf-icons bx bx-rupee"></i>
+                <div data-i18n="Boxicons">Transactions</div>
+              </a>
+            </li>
+            
+            <li class="menu-item" id="adminprofile">
+              <a href="/adminprofile" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-user-circle"></i>
+                <div data-i18n="Boxicons">Profile</div>
               </a>
             </li>
 

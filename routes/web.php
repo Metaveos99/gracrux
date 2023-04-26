@@ -39,10 +39,14 @@ Route::get('/checkout', function () {
 });
 
 
-Route::get('/admins', function () {
+Route::get('/adminhome', function () {
     return view('admins.index');
 });
 
-Route::get('/table', function () {
-    return view('admins.table');
+Route::get('/adminupdatepassword', function () {
+    return view('admins.updatepassword');
+});
+
+Route::get('/adminprofile', function () {
+    return view('admins.profile');
 });

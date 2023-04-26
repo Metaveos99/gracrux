@@ -15,7 +15,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Dashboard</title>
+    <title>Profile</title>
 
     <meta name="description" content="" />
 
@@ -70,7 +70,81 @@
           <x-navbar/>
 
           
+           <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
 
+            <div class="container-xxl flex-grow-1 container-p-y">
+              
+
+              <div class="row">
+                <div class="col-md-12">
+                  <ul class="nav nav-pills flex-column flex-md-row mb-3">
+                    <li class="nav-item">
+                      <a class="nav-link " href="adminprofile"><i class="bx bx-user me-1"></i> Account</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" href="/adminupdatepassword"
+                        ><i class="bx bx-key me-1"></i> Update Password</a
+                      >
+                    </li>
+                    
+                  </ul>
+                  <div class="card mb-4">
+                      
+                    <div class="card-body">
+                      <form id="formAccountSettings" method="POST" onsubmit="return false">
+                        <div class="row">
+                          <div class="mb-3 col-md-6">
+                            <label for="firstName" class="form-label">Current Password </label>
+                            <input
+                              class="form-control"
+                              type="password"
+                              id="firstName"
+                              name="firstName"
+                              placeholder="Current Password"
+                              minlength="8"
+                              maxlength="12"
+                              required
+                              autofocus
+                            />
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label for="lastName" class="form-label">New Password</label>
+                            <input class="form-control" type="password" name="newpassword" id="lastName" placeholder="New Password" minlength="8"
+                              maxlength="12"
+                              required/>
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label for="email" class="form-label">Confirm Password</label>
+                            <input
+                              class="form-control"
+                              type="password"
+                              id="email"
+                              name="confirmpassword"
+                              placeholder="Confirm Password"
+                              minlength="8"
+                              maxlength="12"
+                              required
+                            />
+                          </div>
+                          
+                          
+                          
+                        </div>
+                        <div class="mt-2">
+                          <button type="submit" class="btn btn-primary me-2">Save changes</button>
+                          <button type="reset" class="btn btn-outline-secondary">Cancel</button>
+                        </div>
+                      </form>
+                    </div>
+                    <!-- /Account -->
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <!-- / Content -->
             
 
             <!-- Footer -->
@@ -123,5 +197,10 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <script>
+      document.getElementById('adminprofile').classList.add('active')
+    </script>
+
   </body>
 </html>
