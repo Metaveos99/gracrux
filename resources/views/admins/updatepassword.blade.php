@@ -91,9 +91,26 @@
                     
                   </ul>
                   <div class="card mb-4">
+
+                  @if (session('success'))
+
+                    <div class="alert alert-success">
+                      {{session('success')}}
+                    </div>
+                  @elseif (session('wrong'))
+                  <div class="alert alert-danger">
+                      {{session('wrong')}}
+                    </div>
+                  @elseif (session('match'))
+                  <div class="alert alert-danger">
+                      {{session('match')}}
+                    </div>
+                    
+                  @endif
                       
                     <div class="card-body">
-                      <form id="formAccountSettings" method="POST" onsubmit="return false">
+                      <form action="{{route('updateadminpass')}}" method="POST">
+                        @csrf
                         <div class="row">
                           <div class="mb-3 col-md-6">
                             <label for="firstName" class="form-label">Current Password </label>
@@ -101,7 +118,7 @@
                               class="form-control"
                               type="password"
                               id="firstName"
-                              name="firstName"
+                              name="currentpassword"
                               placeholder="Current Password"
                               minlength="8"
                               maxlength="12"
@@ -147,20 +164,7 @@
             <!-- / Content -->
             
 
-            <!-- Footer -->
-            <footer class="content-footer footer bg-footer-theme">
-              <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
-                <div class="mb-2 mb-md-0">
-                  ©
-                  <script>
-                    document.write(new Date().getFullYear());
-                  </script>
-                  All Rights Reserved 
-                </div>
-                
-              </div>
-            </footer>
-            <!-- / Footer -->
+            
 
             <div class="content-backdrop fade"></div>
           </div>

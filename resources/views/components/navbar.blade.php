@@ -1,3 +1,6 @@
+@php
+    $users = DB::table('users')->first();
+@endphp
 <nav
             class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
             id="layout-navbar"
@@ -44,7 +47,7 @@
                             </div>
                           </div>
                           <div class="flex-grow-1">
-                            <span class="fw-semibold d-block">John Doe</span>
+                            <span class="fw-semibold d-block">{{$users->name}}</span>
                             <small class="text-muted">Admin</small>
                           </div>
                         </div>
@@ -54,18 +57,17 @@
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="#">
+                      <a class="dropdown-item" href="/adminprofile">
                         <i class="bx bx-user me-2"></i>
                         <span class="align-middle">My Profile</span>
                       </a>
                     </li>
                     
                     <li>
-                      <a class="dropdown-item" href="#">
+                      <a class="dropdown-item" href="/adminupdatepassword">
                         <span class="d-flex align-items-center align-middle">
-                          <i class="flex-shrink-0 bx bx-credit-card me-2"></i>
-                          <span class="flex-grow-1 align-middle">Billing</span>
-                          <span class="flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20">4</span>
+                          <i class="flex-shrink-0 bx bx-key me-2"></i>
+                          <span class="flex-grow-1 align-middle">Update Password</span>
                         </span>
                       </a>
                     </li>
@@ -73,10 +75,13 @@
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="auth-login-basic.html">
-                        <i class="bx bx-power-off me-2"></i>
-                        <span class="align-middle">Log Out</span>
-                      </a>
+                      <form action="logout" method="post">
+                        @csrf
+                        <button class="dropdown-item" type="submit">
+                          <i class="bx bx-power-off me-2"></i>
+                          <span class="align-middle">Log Out</span>
+                        </button>
+                      </form>
                     </li>
                   </ul>
                 </li>

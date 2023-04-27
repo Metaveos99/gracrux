@@ -1,6 +1,6 @@
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
           <div class="app-brand demo">
-            <a href="index.html" class="app-brand-link">
+            <a href="/adminhome" class="app-brand-link">
               <span class="app-brand-logo demo">
                 <svg
                   width="25"
@@ -84,7 +84,12 @@
 
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="layouts-without-menu.html" class="menu-link">
+                  <a href="/allproducts" class="menu-link">
+                    <div data-i18n="Without menu">All Products</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="/addproducts" class="menu-link">
                     <div data-i18n="Without menu">Add Product</div>
                   </a>
                 </li>
@@ -94,7 +99,7 @@
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="layouts-container.html" class="menu-link">
+                  <a href="{{route('del')}}" class="menu-link">
                     <div data-i18n="Container">Remove Product</div>
                   </a>
                 </li>
@@ -135,6 +140,16 @@
                 <i class="menu-icon tf-icons bx bx-user-circle"></i>
                 <div data-i18n="Boxicons">Profile</div>
               </a>
+            </li>
+            
+            <li class="menu-item" id="adminprofile">
+            <form action="logout" method="post">
+                        @csrf
+              <button class="dropdown-item ms-1" type="submit">
+                <i class="bx bx-power-off ms-2 me-2"></i>
+                <span class="align-middle">Log Out</span>
+              </button>
+              </form>
             </li>
 
             

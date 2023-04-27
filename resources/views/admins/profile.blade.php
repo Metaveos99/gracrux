@@ -91,6 +91,17 @@
                     
                   </ul>
                   <div class="card mb-4">
+
+                  @if (session('success'))
+
+                    <div class="alert alert-success">
+                      <span class="text-dark">
+                        {{session('success')}}
+                      </span>
+                    </div>
+                    
+                  @endif
+
                     <h5 class="card-header">Profile Details</h5>
                     <!-- Account -->
                     <div class="card-body">
@@ -115,15 +126,15 @@
                               accept="image/png, image/jpeg"
                             />
                           </label>
-                          
 
-                          <p class="text-muted mb-0">Allowed JPG or PNG. Max size of 12000K</p>
+                          <p class="text-muted mb-0">Allowed JPG or PNG</p>
                         </div>
                       </div>
                     </div>
                     <hr class="my-0" />
                     <div class="card-body">
-                      <form id="formAccountSettings" method="POST" onsubmit="return false">
+                      <form id="formAccountSettings" method="POST" action="{{route('adprofileup')}}">
+                        @csrf
                         <div class="row">
                           <div class="mb-3 col-md-6">
                             <label for="firstName" class="form-label">First Name</label>
@@ -131,68 +142,43 @@
                               class="form-control"
                               type="text"
                               id="firstName"
-                              name="firstName"
-                              value="John"
+                              name="firstname"
+                              required
                               autofocus
                             />
                           </div>
                           <div class="mb-3 col-md-6">
                             <label for="lastName" class="form-label">Last Name</label>
-                            <input class="form-control" type="text" name="lastName" id="lastName" value="Doe" />
+                            <input class="form-control" type="text" name="lastname" id="lastName" />
                           </div>
                           <div class="mb-3 col-md-6">
                             <label for="email" class="form-label">E-mail</label>
                             <input
                               class="form-control"
-                              type="text"
+                              type="email"
                               id="email"
                               name="email"
-                              value="john.doe@example.com"
+                              required
                               placeholder="john.doe@example.com"
                             />
                           </div>
-                          <div class="mb-3 col-md-6">
-                            <label for="organization" class="form-label">Organization</label>
-                            <input
-                              type="text"
-                              class="form-control"
-                              id="organization"
-                              name="organization"
-                              value="ThemeSelection"
-                            />
-                          </div>
+                          
                           <div class="mb-3 col-md-6">
                             <label class="form-label" for="phoneNumber">Phone Number</label>
                             <div class="input-group input-group-merge">
                               <span class="input-group-text">IND (+91)</span>
                               <input
-                                type="text"
+                                type="number"
                                 id="phoneNumber"
-                                name="phoneNumber"
+                                name="phone"
                                 class="form-control"
                                 placeholder="202 555 0111"
+                                minlenght="10"
+                                required
                               />
                             </div>
                           </div>
-                          <div class="mb-3 col-md-6">
-                            <label for="address" class="form-label">Address</label>
-                            <input type="text" class="form-control" id="address" name="address" placeholder="Address" />
-                          </div>
-                          <div class="mb-3 col-md-6">
-                            <label for="state" class="form-label">State</label>
-                            <input class="form-control" type="text" id="state" name="state" placeholder="Mumbai" />
-                          </div>
-                          <div class="mb-3 col-md-6">
-                            <label for="zipCode" class="form-label">Zip Code</label>
-                            <input
-                              type="text"
-                              class="form-control"
-                              id="zipCode"
-                              name="zipCode"
-                              placeholder="231465"
-                              maxlength="6"
-                            />
-                          </div>
+                          
                           
                           
                         </div>
@@ -211,20 +197,7 @@
             <!-- / Content -->
             
 
-            <!-- Footer -->
-            <footer class="content-footer footer bg-footer-theme">
-              <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
-                <div class="mb-2 mb-md-0">
-                  ©
-                  <script>
-                    document.write(new Date().getFullYear());
-                  </script>
-                  All Rights Reserved 
-                </div>
-                
-              </div>
-            </footer>
-            <!-- / Footer -->
+            
 
             <div class="content-backdrop fade"></div>
           </div>
