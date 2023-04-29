@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Usercontroller;
 use App\Http\Controllers\Productcontroller;
+use App\Http\Controllers\Webcontroller;
 
 
 /*
@@ -17,22 +18,21 @@ use App\Http\Controllers\Productcontroller;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/',[Webcontroller::class,'dash']);
 
 Route::get('/contact', function () {
     return view('contact');
 });
 
-Route::get('/products', function () {
-    return view('product');
-});
+
+Route::get('products/{price?}/{cat?}', [Webcontroller::class,'pros']);
+
+Route::get('details/{name}', [Webcontroller::class,'detail']);
+Route::get('product/{cat}', [Webcontroller::class,'category'])->name('uniq');
 
 
-Route::get('/details', function () {
-    return view('product-details');
-});
+
+
 
 Route::get('/cart', function () {
     return view('cart');
@@ -50,9 +50,6 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
 
     Route::get('/adminhome', function () {
         return view('admins.index');
@@ -76,6 +73,11 @@ Route::middleware([
     Route::get('/allproducts',[Productcontroller::class,'display'] )->name('all');
     Route::get('/removeproduct',[Productcontroller::class,'delete'] )->name('del');
     Route::post('/deleteproduct',[Productcontroller::class,'prodelete'] )->name('delproduct');
+    Route::get('/editproducts',[Productcontroller::class,'proedit'] )->name('editproducts');
+    Route::post('/profilephoto',[Usercontroller::class,'proupload'] )->name('profilephoto');
+    Route::get('/new',[Productcontroller::class,'aja'] );
+    Route::post('/uppro',[Productcontroller::class,'proup'] )->name('uppro');
+    Route::post('/upproimg',[Productcontroller::class,'proupimg'] )->name('upproimg');
 
 
 });

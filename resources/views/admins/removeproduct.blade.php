@@ -195,7 +195,9 @@
   });
 </script>
 
-
+    <script>
+      document.getElementById('adminproducts').classList.add('active')
+    </script>
 
 
   </body>

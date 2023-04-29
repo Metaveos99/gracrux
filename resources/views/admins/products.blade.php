@@ -79,11 +79,14 @@
                       <img class="card-img-top" style="height:20rem" src="{{$pro['img1']}}" alt="Card image cap" />
                       <div class="card-body">
                         <h5 class="card-title">{{$pro['name']}}</h5>
-                        <h6 class="card-title">Price: {{$pro['price']}} Rs/- <span class="ms-2" style="color: red">{{$pro['discount']}}% Off</span>  </h6>
+                        <span class="d-none">
+                          {{ $s = ($pro['price']/100)*$pro['discount'] }}
+                        </span>
+                        <h6 class="card-title">Price: <del>{{$pro['price']}}</del>  {{$pro['price']-$s}} Rs/- <span class="ms-2" style="color: red">{{$pro['discount']}}% Off</span>  </h6>
                         <h6 class="card-title">Stock: {{$pro['stock']}}  </h6>
                         <h6 class="card-title">Category: {{$pro['category']}}  </h6>
 
-                        <p class="card-text">Description: 
+                        <p class="card-text" >Description: 
                           {{$pro['description']}} 
                         </p>
                       </div>
@@ -134,5 +137,11 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <script>
+      document.getElementById('adminproducts').classList.add('active')
+    </script>
+
+
   </body>
 </html>

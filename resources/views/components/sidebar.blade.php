@@ -94,7 +94,7 @@
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="layouts-without-navbar.html" class="menu-link">
+                  <a href="/editproducts" class="menu-link">
                     <div data-i18n="Without navbar">Edit product</div>
                   </a>
                 </li>

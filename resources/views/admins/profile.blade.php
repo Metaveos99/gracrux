@@ -1,3 +1,7 @@
+@php
+    $users = DB::table('users')->first();
+@endphp
+
 <!DOCTYPE html>
 
 <html
@@ -99,6 +103,14 @@
                         {{session('success')}}
                       </span>
                     </div>
+
+                    @elseif (session('pup'))
+
+                    <div class="alert alert-success">
+                      <span class="text-dark">
+                        {{session('pup')}}
+                      </span>
+                    </div>
                     
                   @endif
 
@@ -107,7 +119,7 @@
                     <div class="card-body">
                       <div class="d-flex align-items-start align-items-sm-center gap-4">
                         <img
-                          src="admin/assets/img/avatars/1.png"
+                          src="{{$users->profile_photo_path}}"
                           alt="user-avatar"
                           class="d-block rounded"
                           height="100"
@@ -115,17 +127,21 @@
                           id="uploadedAvatar"
                         />
                         <div class="button-wrapper">
-                          <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
-                            <span class="d-none d-sm-block">Upload new photo</span>
-                            <i class="bx bx-upload d-block d-sm-none"></i>
-                            <input
-                              type="file"
-                              id="upload"
-                              class="account-file-input"
-                              hidden
-                              accept="image/png, image/jpeg"
-                            />
-                          </label>
+                          <form action="{{route('profilephoto')}}" method="post" enctype="multipart/form-data" id="proform">
+                            @csrf
+                            <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
+                              <span class="d-none d-sm-block">Upload new photo</span>
+                              <i class="bx bx-upload d-block d-sm-none"></i>
+                              <input
+                                type="file"
+                                id="upload"
+                                name="proimage"
+                                class="account-file-input"
+                                hidden
+                                accept="image/png, image/jpeg"
+                              />
+                            </label>
+                          </form>
 
                           <p class="text-muted mb-0">Allowed JPG or PNG</p>
                         </div>
@@ -238,6 +254,20 @@
     <script>
       document.getElementById('adminprofile').classList.add('active')
     </script>
+
+<script>
+  $(document).ready(function(){
+
+    $('#upload').change(function(){
+      
+      $('#proform').submit();
+
+    });
+    
+
+  });
+</script>
+
 
   </body>
 </html>

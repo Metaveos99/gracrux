@@ -56,5 +56,24 @@ class Usercontroller extends Controller
     }
 
 
+    function proupload(Request $req){
+
+        $user = User::find(1);
+
+        $path = $req->file('proimage')->store('public');
+
+        $path = "storage".substr_replace($path, "", 0, 6);
+        
+        $user->profile_photo_path=$path;
+
+        $user->save();
+
+
+        return redirect('adminprofile')->with('pup', 'Uploaded Successfully');
+
+    }
+
+
+
 
 }

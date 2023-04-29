@@ -16,7 +16,6 @@
     
 </style>
 
-
 </head>
 
 <body>
@@ -42,7 +41,7 @@
                             <ul>
                                 @foreach ($category as $cat )
                                 
-                                <li><a href="{{route('uniq',['cat'=>$cat->category])}}">{{$cat->category}}</a></li>
+                                <li><a href="{{$cat->category}}">{{$cat->category}}</a></li>
                                     
                                 @endforeach
                                 
@@ -59,10 +58,8 @@
                                 </div>
                                 <div class="range-slider">
                                     <div class="price-input">
-                                        <form action="  " method="get">
-                                            <input type="text" id="minamount" name="minamount">
-                                            <input type="text" id="maxamount" name="maxamount">
-                                        </form>
+                                        <input type="text" id="minamount">
+                                        <input type="text" id="maxamount">
                                     </div>
                                 </div>
                             </div>
@@ -110,10 +107,9 @@
                             <div class="col-lg-4 col-md-5">
                                 <div class="filter__sort">
                                     <span>Sort By</span>
-                                    <select id="sort">
-                                        <option value="Default">Default</option>
-                                        <option value="Low To High">Price Low To High</option>
-                                        <option value="High To Low">Price High To Low</option>
+                                    <select>
+                                        <option value="0">Default</option>
+                                        <option value="0">Default</option>
                                     </select>
                                 </div>
                             </div>
@@ -124,7 +120,9 @@
 
                         @foreach ($pro as $pr )
                             
-                                <div class="col-lg-4 mb-3">
+                        
+
+                        <div class="col-lg-4 mb-3">
                                     <div class="product__discount__item">
                                         <div class="product__discount__item__pic set-bg"
                                             data-setbg="/{{$pr->img1}}">
@@ -136,13 +134,12 @@
                                         </div>
                                         <div class="product__discount__item__text">
                                             <span>{{$pr->category}}</span>
-                                            <h5 class="trunc"><a href="#">{{$pr->name}}</a></h5>
+                                            <h5 class="trunc"><a href="{{$pr->name}}">{{$pr->name}}</a></h5>
                                             <span class="d-none">{{ $t=round(($pr->price/100)*$pr->discount)}}  </span>
                                             <div class="product__item__price">₹ {{$pr->price - $t}} <span>₹{{$pr->price}}</span></div>
                                         </div>
                                     </div>
                                 </div>
-
                         @endforeach
                     </div>
                     
@@ -169,21 +166,6 @@
 <script>
      document.getElementById('shopnav').classList.add('active');
 </script>
-
-<script>
-
-    $('#sort').change(function(){
-
-       var val = $('#sort').val()
-
-       window.location.href = "/products/"+val;
-       
-
-    });
-
-
-</script>
-
 
 </body>
 

@@ -1,3 +1,9 @@
+@php
+    $dt = DB::table('products')->select('category')->distinct()->get()
+@endphp
+
+
+
 <!-- Humberger Begin -->
 <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
@@ -6,10 +12,9 @@
         </div>
         <div class="humberger__menu__cart">
             <ul>
-                <li><a href="#"><i class="fa fa-heart"></i> <span>2</span></a></li>
                 <li><a href="/cart"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
             </ul>
-            <div class="header__cart__price">item: <span>$150.00</span></div>
+            
         </div>
         <div class="humberger__menu__widget">
             
@@ -84,12 +89,11 @@
                     </nav>
                 </div>
                 <div class="col-lg-3">
-                    <div class="header__cart">
+                    <div class="header__cart" id="bag">
                         <ul>
-                            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                             <li><a href="/cart"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                         </ul>
-                        <div class="header__cart__price">item: <span>$150.00</span></div>
+                        
                     </div>
                 </div>
             </div>
@@ -108,20 +112,19 @@
                     <div class="hero__categories">
                         <div class="hero__categories__all">
                             <i class="fa fa-bars"></i>
-                            <span>All Categories</span>
+                            <span>All Categories </span>
                         </div>
                         <ul>
-                            <li><a href="#">Fresh Meat</a></li>
-                            <li><a href="#">Vegetables</a></li>
-                            <li><a href="#">Fruit & Nut Gifts</a></li>
-                            <li><a href="#">Fresh Berries</a></li>
-                            <li><a href="#">Ocean Foods</a></li>
-                            <li><a href="#">Butter & Eggs</a></li>
-                            <li><a href="#">Fastfood</a></li>
-                            <li><a href="#">Fresh Onion</a></li>
-                            <li><a href="#">Papayaya & Crisps</a></li>
-                            <li><a href="#">Oatmeal</a></li>
-                            <li><a href="#">Fresh Bananas</a></li>
+                           
+                            @foreach ($dt as $d )
+
+
+                            <li><a href="{{route('uniq',['cat'=>$d->category])}}">{{$d->category}}</a></li>
+                                
+
+                            @endforeach
+
+                            
                         </ul>
                     </div>
                 </div>
@@ -133,11 +136,11 @@
                                 <button type="submit" class="site-btn">SEARCH</button>
                             </form>
                         </div>
-                        <div class="hero__search__phone">
+                        <div class="hero__search__phone" id="tdnone">
                             <div class="hero__search__phone__icon">
                                 <i class="fa fa-phone"></i>
                             </div>
-                            <div class="hero__search__phone__text">
+                            <div class="hero__search__phone__text ">
                                 <h5>022 28490403</h5>
                                 <span>Support 24/7</span>
                             </div>

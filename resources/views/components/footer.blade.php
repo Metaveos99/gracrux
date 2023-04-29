@@ -2,7 +2,7 @@
 <footer class="footer spad">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="col-md-4 ">
                     <div class="footer__about">
                         <div class="footer__about__logo">
                             <a href="/"><h2 class="h2 text-bold"><b>Gracrux</b></h2></a>
@@ -15,7 +15,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
+                <div class="col-md-3 offset-lg-1">
                     <div class="footer__widget">
                         <h6>Useful Links</h6>
                         <ul>
@@ -26,17 +26,10 @@
                             <li><a href="#">Privacy Policy</a></li>
                             <li><a href="#">Our Sitemap</a></li>
                         </ul>
-                        <ul>
-                            <li><a href="#">Who We Are</a></li>
-                            <li><a href="#">Our Services</a></li>
-                            <li><a href="#">Projects</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Innovation</a></li>
-                            <li><a href="#">Testimonials</a></li>
-                        </ul>
+                        
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-12">
+                <div class="col-md-4 ">
                     <div class="footer__widget">
                         <h6>Join Our Newsletter Now</h6>
                         <p>Get E-mail updates about our latest shop and special offers.</p>
