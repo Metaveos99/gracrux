@@ -78,14 +78,26 @@
                         <div class="featured__item__pic set-bg" data-setbg="{{$pr->img1}}">
                             <ul class="featured__item__pic__hover">
                                 <li><a href="details/{{$pr->name}}"><i class="fa fa-eye"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                <li>
+
+                                <form action="/addtocart" method="post">
+
+                                        @csrf
+
+                                        <input class="d-none" type="text" value="1" name="qua" id="qua">
+
+                                        <button class="btn rounded-circle" style="background-color:white;" type="submit" name="id" value="{{$pr->id}}" ><i class="fa fa-shopping-cart"></i></button>
+
+                                    </form>
+                                    
+
+                                </li>
                             </ul>
                         </div>
                         <div class="featured__item__text">
                             <h6 class="trunc"><a href="#">{{$pr->name}}</a></h6>
-                            <span class="d-none">{{ $t=round(($pr->price/100)*$pr->discount)}}  </span>
                             <h5 class="mb-1"><del style="color:#1c1c1c80;">₹ {{$pr->price}}</del></h5>
-                            <h5 class="mb-1">₹ {{$pr->price-$t}} /-</h5>
+                            <h5 class="mb-1">₹ {{$pr->dprice}} /-</h5>
                             <h6 class="mb-1" style="color:red;">{{$pr->discount}}% off</h6>
                         </div>
                     </div>

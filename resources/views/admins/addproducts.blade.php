@@ -103,12 +103,18 @@
 
                         <div class="mb-3">
                           <label class="form-label" for="basic-default-company">Price</label>
-                          <input type="number" name="price" class="form-control" id="basic-default-company" placeholder="1200" required/>
+                          <input type="number" name="price" class="form-control" id="bprice" placeholder="1200" required/>
                         </div>
                         <div class="mb-3">
                           <label class="form-label" for="basic-default-company">Discount</label>
-                          <input type="number" name="discount" class="form-control" id="basic-default-company" placeholder="20%"required />
+                          <input type="number" name="discount" class="form-control" id="bdiscount" placeholder="20%"required />
                         </div>
+
+                        <div class="mb-3">
+                          <label class="form-label" for="basic-default-company">Discount Price</label>
+                          <input type="number" name="dprice" class="form-control" id="bdprice" placeholder="850" readonly />
+                        </div>
+
                         <div class="mb-3">
                           <label class="form-label" for="basic-default-company">Category</label>
                           <input type="text" name="category" class="form-control" id="basic-default-company" placeholder="Oil"required />
@@ -206,6 +212,47 @@
     <script>
       document.getElementById('adminproducts').classList.add('active')
     </script>
+
+  <script>
+
+  $(document).ready(function(){
+
+    $('#bprice').keyup(function(){
+
+      $pr =  $('#bprice').val();
+
+      $dis = $('#bdiscount').val();
+
+      $d = ($pr/100)*$dis
+
+      $val = Math.round($pr -$d)
+
+      $('#bdprice').val($val)
+
+    });
+
+
+    $('#bdiscount').keyup(function(){
+
+      $pr =  $('#bprice').val();
+
+      $dis = $('#bdiscount').val();
+
+      $d = ($pr/100)*$dis
+
+      $val = Math.round($pr -$d)
+
+      $('#bdprice').val($val)
+
+     });
+
+
+
+
+  });
+
+  </script>
+
 
   </body>
 </html>

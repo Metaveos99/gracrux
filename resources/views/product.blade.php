@@ -48,53 +48,7 @@
                                 
                             </ul>
                         </div>
-                        <div class="sidebar__item">
-                            <h4>Price</h4>
-                            <div class="price-range-wrap">
-                                <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
-                                    data-min="10" data-max="540">
-                                    <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
-                                    <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
-                                    <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
-                                </div>
-                                <div class="range-slider">
-                                    <div class="price-input">
-                                        <form action="  " method="get">
-                                            <input type="text" id="minamount" name="minamount">
-                                            <input type="text" id="maxamount" name="maxamount">
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         
-                        <div class="sidebar__item">
-                            <h4>Popular Size</h4>
-                            <div class="sidebar__item__size">
-                                <label for="large">
-                                    Large
-                                    <input type="radio" id="large">
-                                </label>
-                            </div>
-                            <div class="sidebar__item__size">
-                                <label for="medium">
-                                    Medium
-                                    <input type="radio" id="medium">
-                                </label>
-                            </div>
-                            <div class="sidebar__item__size">
-                                <label for="small">
-                                    Small
-                                    <input type="radio" id="small">
-                                </label>
-                            </div>
-                            <div class="sidebar__item__size">
-                                <label for="tiny">
-                                    Tiny
-                                    <input type="radio" id="tiny">
-                                </label>
-                            </div>
-                        </div>
                         
                     </div>
                 </div>
@@ -131,14 +85,26 @@
                                             <div class="product__discount__percent">-{{$pr->discount}}%</div>
                                             <ul class="product__item__pic__hover">
                                                 <li><a href="/details/{{$pr->name}}"><i class="fa fa-eye"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                                <li>
+
+                                                <form action="/addtocart" method="post">
+
+                                        @csrf
+
+                                        <input class="d-none" type="text" value="1" name="qua" id="qua">
+
+                                        <button class="btn rounded-circle" style="background-color:white;" type="submit" name="id" value="{{$pr->id}}" ><i class="fa fa-shopping-cart"></i></button>
+
+                                    </form>
+                                    
+
+                                                </li>
                                             </ul>
                                         </div>
                                         <div class="product__discount__item__text">
                                             <span>{{$pr->category}}</span>
                                             <h5 class="trunc"><a href="#">{{$pr->name}}</a></h5>
-                                            <span class="d-none">{{ $t=round(($pr->price/100)*$pr->discount)}}  </span>
-                                            <div class="product__item__price">₹ {{$pr->price - $t}} <span>₹{{$pr->price}}</span></div>
+                                            <div class="product__item__price">₹ {{$pr->dprice}} <span>₹{{$pr->price}}</span></div>
                                         </div>
                                     </div>
                                 </div>

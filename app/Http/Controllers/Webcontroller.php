@@ -78,6 +78,18 @@ class Webcontroller extends Controller
     }
 
 
+    function search(Request $req){
+
+        
+       $product = Product::where('name', 'LIKE', '%'.$req->sda."%" )->get();
+
+       return view('search',['pro'=>$product]);
+
+
+    }
+
+        
+    
 
 
 

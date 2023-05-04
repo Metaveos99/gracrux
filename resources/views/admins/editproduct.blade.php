@@ -184,14 +184,21 @@
                     <div>
                       <label for="validationCustomUsername" class="form-label">Price</label>
                         <div class="input-group has-validation">
-                        <input type="text" id="price" name="price" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+                        <input type="text" id="price" name="price" class="form-control"  aria-describedby="inputGroupPrepend" required>
                       </div>
                     </div>
 
                     <div>
                       <label for="validationCustomUsername" class="form-label">Discount</label>
                         <div class="input-group has-validation">
-                        <input type="text" id="discount" name="discount" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+                        <input type="text" id="discount" name="discount" class="form-control"  aria-describedby="inputGroupPrepend" required>
+                      </div>
+                    </div>
+
+                    <div>
+                      <label for="validationCustomUsername" class="form-label">Discount Price</label>
+                        <div class="input-group has-validation">
+                        <input type="text" name="dprice" class="form-control" id="bdprice" aria-describedby="inputGroupPrepend" readonly>
                       </div>
                     </div>
 
@@ -388,9 +395,12 @@
         datas: JSON.stringify(data)
       }, function(response) {
         
+        
+
         $('#sr').val(response.id);
         $('#pname').val(response.name);
         $('#price').val(response.price);
+        $('#bdprice').val(response.dprice);
         $('#discount').val(response.discount);
         $('#stock').val(response.stock);
         $('#category').val(response.category);
@@ -415,6 +425,48 @@
 
 
   </script>
+
+
+<script>
+
+  $(document).ready(function(){
+
+    $('#price').keyup(function(){
+
+      $pr =  $('#price').val();
+
+      $dis = $('#discount').val();
+
+      $d = ($pr/100)*$dis
+
+      $val = Math.round($pr -$d)
+
+      $('#bdprice').val($val)
+
+    });
+
+
+    $('#discount').keyup(function(){
+
+      $pr =  $('#price').val();
+
+      $dis = $('#discount').val();
+
+      $d = ($pr/100)*$dis
+
+      $val = Math.round($pr -$d)
+
+      $('#bdprice').val($val)
+
+     });
+
+
+
+
+  });
+
+  </script>
+
 
 
 

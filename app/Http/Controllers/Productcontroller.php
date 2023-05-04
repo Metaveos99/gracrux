@@ -34,6 +34,7 @@ class Productcontroller extends Controller
         $product->name=$req->pname;
         $product->price=$req->price;
         $product->discount=$req->discount;
+        $product->dprice=$req->dprice;
         $product->category=$req->category;
         $product->stock="Available";
         $product->description=$req->description;
@@ -75,7 +76,7 @@ class Productcontroller extends Controller
 
     function prodelete(Request $req){
 
-        $products = Product::find($req->id);
+        $products = Product::where('id',$req->id);
 
         $products->delete();
 
@@ -94,7 +95,7 @@ class Productcontroller extends Controller
 
     function aja (Request $req){
 
-        $data = Product::find($req->datas)->first();
+        $data = Product::where('id',$req->datas)->first();
 
         return $data;
 
@@ -102,11 +103,12 @@ class Productcontroller extends Controller
 
     function proup (Request $req){
 
-        $data = Product::find($req->sr)->first();
+        $data = Product::where('id',$req->sr)->first();
 
 
         $data->name=$req->pname;
         $data->price=$req->price;
+        $data->dprice=$req->dprice;
         $data->discount=$req->discount;
         $data->stock=$req->stock;
         $data->category=$req->category;
@@ -141,7 +143,7 @@ class Productcontroller extends Controller
 
 
 
-        $product= Product::find($req->sr);
+        $product= Product::where('id',$req->sr);
 
         
         $product->img1=$img1;

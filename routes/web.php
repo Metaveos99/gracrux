@@ -5,6 +5,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Usercontroller;
 use App\Http\Controllers\Productcontroller;
 use App\Http\Controllers\Webcontroller;
+use App\Http\Controllers\Clientcontroller;
+use App\Http\Controllers\Cartcontroller;
+use App\Http\Controllers\Ordercontroller;
+
+use App\Http\Middleware\checklogin;
+use App\Http\Middleware\restrict;
+
 
 
 /*
@@ -29,18 +36,37 @@ Route::get('products/{price?}/{cat?}', [Webcontroller::class,'pros']);
 
 Route::get('details/{name}', [Webcontroller::class,'detail']);
 Route::get('product/{cat}', [Webcontroller::class,'category'])->name('uniq');
+Route::get('search', [Webcontroller::class,'search'])->name('search');
+
+Route::post('userreg', [Clientcontroller::class,'register'])->name('reg');
+Route::post('log', [Clientcontroller::class,'log'])->name('log');
+
+Route::get('logoutuser', [Clientcontroller::class,'out'])->name('out');
+
+
+Route::post('addtocart', [Cartcontroller::class,'add']);
+
+Route::get('cart', [Cartcontroller::class,'cart']);
+
+Route::post('remove', [Cartcontroller::class,'remove']);
+
+Route::post('cartupdate', [Cartcontroller::class,'update']);
 
 
 
 
+Route::get('/user-register', function () {
+    return view('userregister');
+})->middleware('check');
 
-Route::get('/cart', function () {
-    return view('cart');
-});
+Route::get('/user-login', function () {
+    return view('userlogin');
+})->middleware('check');
 
-Route::get('/checkout', function () {
-    return view('checkout');
-});
+
+
+
+Route::get('/checkout', [Ordercontroller::class,'check'])->middleware('restrict');
 
 
 

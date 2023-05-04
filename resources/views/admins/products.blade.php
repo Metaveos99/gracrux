@@ -79,10 +79,7 @@
                       <img class="card-img-top" style="height:20rem" src="{{$pro['img1']}}" alt="Card image cap" />
                       <div class="card-body">
                         <h5 class="card-title">{{$pro['name']}}</h5>
-                        <span class="d-none">
-                          {{ $s = ($pro['price']/100)*$pro['discount'] }}
-                        </span>
-                        <h6 class="card-title">Price: <del>{{$pro['price']}}</del>  {{$pro['price']-$s}} Rs/- <span class="ms-2" style="color: red">{{$pro['discount']}}% Off</span>  </h6>
+                        <h6 class="card-title">Price: <del>{{$pro['price']}}</del>  {{$pro['dprice']}} Rs/- <span class="ms-2" style="color: red">{{$pro['discount']}}% Off</span>  </h6>
                         <h6 class="card-title">Stock: {{$pro['stock']}}  </h6>
                         <h6 class="card-title">Category: {{$pro['category']}}  </h6>
 

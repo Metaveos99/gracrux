@@ -1,5 +1,15 @@
 @php
     $dt = DB::table('products')->select('category')->distinct()->get()
+
+@endphp
+
+
+@php
+// Get the current cart contents from the cookie, or an empty array if it doesn't exist
+$cart = json_decode(request()->cookie('cart', '[]'), true);
+
+// Count the number of items in the cart
+$items_count = count($cart);
 @endphp
 
 
@@ -8,18 +18,26 @@
 <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
-            <a href="#"><h2 class="h2"> <b>Gracrux</b> </h2></a>
+            <a href="/"><h2 class="h2"> <b>Gracrux</b> </h2></a>
         </div>
         <div class="humberger__menu__cart">
             <ul>
-                <li><a href="/cart"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                <li><a href="/cart"><i class="fa fa-shopping-bag"></i> <span>{{ $items_count }}</span></a></li>
             </ul>
             
         </div>
         <div class="humberger__menu__widget">
             
             <div class="header__top__right__auth">
-                <a href="#"><i class="fa fa-user"></i> Login</a>
+
+                @if (session('userid'))
+                    <a href="#"><i class="fa fa-user"></i> {{session('useridname')}}</a>
+                    <a href="{{route('out')}}"><i class="fa fa-sign-out"></i> Logout</a>
+
+                @else
+                <a href="/user-login"><i class="fa fa-user"></i> Login</a>
+                @endif
+
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
@@ -65,7 +83,24 @@
                             </div>
                             
                             <div class="header__top__right__auth">
-                                <a href="#"><i class="fa fa-user"></i> Login</a>
+                                @if (session('userid'))
+
+                                <nav class="header__menu"> 
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-user"></i> {{session('useridname')}}</a>
+                                            <ul class="header__menu__dropdown">
+                                                <li><a href="">Orders</a></li>
+                                                <li><a href="{{route('out')}}">Log Out</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+
+                                </nav>
+
+                                
+                                 @else
+                                 <a href="/user-login"><i class="fa fa-user"></i> Login</a>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -91,9 +126,8 @@
                 <div class="col-lg-3">
                     <div class="header__cart" id="bag">
                         <ul>
-                            <li><a href="/cart"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                            <li><a href="/cart"><i class="fa fa-shopping-bag"></i> <span>{{ $items_count }}</span></a></li>
                         </ul>
-                        
                     </div>
                 </div>
             </div>
@@ -131,8 +165,8 @@
                 <div class="col-lg-9">
                     <div class="hero__search">
                         <div class="hero__search__form">
-                            <form action="#">
-                                <input type="text" placeholder="What do yo u need?">
+                            <form action="{{route('search')}}" method="get">
+                                <input type="text" name="sda" placeholder="What do yo u need?">
                                 <button type="submit" class="site-btn">SEARCH</button>
                             </form>
                         </div>
@@ -151,3 +185,6 @@
         </div>
     </section>
     <!-- Hero Section End -->
+
+
+   

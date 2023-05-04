@@ -57,19 +57,22 @@
                             <i class="fa fa-star-half-o"></i>
                            
                         </div>
-                        <span class="d-none">{{ $t=round(($pro->price/100)*$pro->discount)}}  </span>
-                        <div class="product__details__price">₹ <del style="color:#ff000082;"> {{$pro['price']}} </del> {{$pro['price']-$t}} /-</div>
+                        <span class="d-none">{{ $t=round(($pro->price)- $pro->dprice)}}  </span>
+                        <div class="product__details__price">₹ <del style="color:#ff000082;"> {{$pro['price']}} </del> {{$pro['dprice']}} /-</div>
                         <div class="product__details__price">You Save ₹ {{$t}} ({{$pro->discount}}%)</div>
                         <p> {{$pro['description']}} </p>
+                        <form action="/addtocart" method="post">
+                            @csrf
                         <div class="product__details__quantity">
                             <div class="quantity">
                                 <div class="pro-qty">
-                                    <input type="text" value="1">
+                                    <input type="text" onchange="validity.valid||(value='');" min="1" value="1" name="qua" id="qua">
                                 </div>
                             </div>
                         </div>
-                        <a href="#" class="primary-btn">ADD TO CART</a>
-                        <a href="#" class="primary-btn">BUY NOW</a>
+                        <button  class="btn primary-btn " type="submit" name="id" id="addtocart" value="{{$pro->id}}">ADD TO CART</button>
+                       
+                    </form>
                         
                         <ul>
                             <li><b>Stock</b> <span>{{$pro['stock']}}</span></li>
@@ -84,6 +87,9 @@
         </div>
     </section>
     <!-- Product Details Section End -->
+
+    
+
 
     <!-- Related Product Section Begin -->
     <section class="related-product">
@@ -102,13 +108,24 @@
                         <div class="product__item__pic set-bg" data-setbg="/{{$r->img1}}">
                             <ul class="product__item__pic__hover">
                                 <li><a href="{{$r->name}}"><i class="fa fa-eye"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                <li>
+                                    <form action="/addtocart" method="post">
+
+                                        @csrf
+
+                                        <input class="d-none" type="number"   value="1" name="qua" id="qua">
+
+                                        <button class="btn rounded-circle" style="background-color:white;" type="submit" name="id" value="{{$r->id}}" ><i class="fa fa-shopping-cart"></i></button>
+
+                                    </form>
+                                    
+                            
+                                </li>
                             </ul>
                         </div>
                         <div class="product__item__text">
                             <h6 class="trunc"><a href="{{$r->name}}" >{{$r->name}}</a></h6>
-                            <span class="d-none">{{ $t=round(($r->price/100)*$r->discount)}}  </span>
-                            <h5>₹<del style="color:#1c1c1c80;"> {{$r->price}}</del> {{$r->price-$t}}</h5>
+                            <h5>₹<del style="color:#1c1c1c80;"> {{$r->price}}</del> {{$r->dprice}}</h5>
                             
                             <h5 style="color:red;">{{$r->discount}}% off</h5>
                         </div>
@@ -143,6 +160,9 @@
 <script>
      document.getElementById('shopnav').classList.add('active');
 </script>
+
+
+
 
 </body>
 

@@ -13,6 +13,7 @@
 
     <x-header/>
 
+    @if (count($cart)>0)
 
     <!-- Shoping Cart Section Begin -->
     <section class="shoping-cart spad">
@@ -25,83 +26,74 @@
                                 <tr>
                                     <th class="shoping__product">Products</th>
                                     <th>Price</th>
+                                    <th>Discount</th>
                                     <th>Quantity</th>
                                     <th>Total</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
+                            
+                         
+
+                            @foreach ($cart as $cart_item)
+
                                 <tr>
                                     <td class="shoping__cart__item">
-                                        <img src="img/cart/cart-1.jpg" alt="">
-                                        <h5>Vegetable’s Package</h5>
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <img src="{{ $cart_item['img'] }}" alt="">
+                                            </div>
+                                            <div class="col-lg-8 ">
+                                                <h5>{{ $cart_item['name'] }}</h5>
+                                            </div>
+                                        </div>
                                     </td>
                                     <td class="shoping__cart__price">
-                                        $55.00
+                                    ₹ {{ $cart_item['price'] }}
+                                    </td>
+                                    <td class="shoping__cart__price" style="color:red">
+                                      {{ $cart_item['discount'] }} %
                                     </td>
                                     <td class="shoping__cart__quantity">
                                         <div class="quantity">
                                             <div class="pro-qty">
-                                                <input type="text" value="1">
+                                                    <input type="number" min='1' id="q" name="quantity" value="{{ $cart_item['quantity'] }}">
+                                               
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="shoping__cart__total">
-                                        $110.00
-                                    </td>
-                                    <td class="shoping__cart__item__close">
-                                        <span class="icon_close"></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="shoping__cart__item">
-                                        <img src="img/cart/cart-2.jpg" alt="">
-                                        <h5>Fresh Garden Vegetable</h5>
-                                    </td>
-                                    <td class="shoping__cart__price">
-                                        $39.00
-                                    </td>
-                                    <td class="shoping__cart__quantity">
-                                        <div class="quantity">
-                                            <div class="pro-qty">
-                                                <input type="text" value="1">
-                                            </div>
-                                        </div>
+                                    <td class="d-none">
+                                        <form action="cartupdate" method="post" id="qform">
+                                                 @csrf
+                                                <input class="d-none" type="text" name="id" value="{{$cart_item['id']}}">
+                                                <input type="text" min='1' id="qf" name="quantity">
+                                        </form>
                                     </td>
                                     <td class="shoping__cart__total">
-                                        $39.99
+                                    ₹ {{ $cart_item['total'] }}
                                     </td>
                                     <td class="shoping__cart__item__close">
-                                        <span class="icon_close"></span>
+                                        <form action="/remove" method="post">
+                                            @csrf
+                                            <button type="submit" id="rem" name="id" value="{{$cart_item['id']}}" class="btn">
+                                                <span class="icon_close"></span>
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td class="shoping__cart__item">
-                                        <img src="img/cart/cart-3.jpg" alt="">
-                                        <h5>Organic Bananas</h5>
-                                    </td>
-                                    <td class="shoping__cart__price">
-                                        $69.00
-                                    </td>
-                                    <td class="shoping__cart__quantity">
-                                        <div class="quantity">
-                                            <div class="pro-qty">
-                                                <input type="text" value="1">
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="shoping__cart__total">
-                                        $69.99
-                                    </td>
-                                    <td class="shoping__cart__item__close">
-                                        <span class="icon_close"></span>
-                                    </td>
-                                </tr>
+
+                             @endforeach   
                             </tbody>
+
+                           
                         </table>
                     </div>
                 </div>
             </div>
+
+            
+
             <div class="row">
                 <div class="col-lg-12">
                     <div class="shoping__cart__btns">
@@ -124,8 +116,9 @@
                     <div class="shoping__checkout">
                         <h5>Cart Total</h5>
                         <ul>
-                            <li>Subtotal <span>$454.98</span></li>
-                            <li>Total <span>$454.98</span></li>
+                            <li>Subtotal <span>₹{{$total}}</span></li>
+                            <li>Delivery Charge <span>₹50</span></li>
+                            <li>Total <span>₹ {{$total + 50}}</span></li>
                         </ul>
                         <a href="/checkout" class="primary-btn">PROCEED TO CHECKOUT</a>
                     </div>
@@ -134,8 +127,17 @@
         </div>
     </section>
     <!-- Shoping Cart Section End -->
-    
 
+    @else
+
+    <div class="m-5 p-5 text-center">
+        <h3>Your Cart Is Empty</h3>
+        
+    </div>
+ 
+                            
+
+    @endif
     
 
     <!-- Footer Section Begin -->
@@ -152,6 +154,38 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
 
+    <script>
+
+        $('.dec').click(function(){
+
+          
+
+            var q = Number($('#q').val())-1;
+
+            if (q == 0) {
+                $('#rem').click()
+            }else{
+                
+                $('#qf').val(q);
+    
+                $('#qform').submit();
+            }
+
+
+        })
+
+        $('.inc ').click(function(){
+
+
+            var q = Number($('#q').val())+1;
+
+            $('#qf').val(q);
+
+            $('#qform').submit();
+
+        })
+
+    </script>
 
 
 </body>
