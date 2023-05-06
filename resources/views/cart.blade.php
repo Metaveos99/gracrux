@@ -40,7 +40,7 @@
 
                                 <tr>
                                     <td class="shoping__cart__item">
-                                        <div class="row">
+                                        <div class="row d-flex align-items-center">
                                             <div class="col-lg-4">
                                                 <img src="{{ $cart_item['img'] }}" alt="">
                                             </div>
@@ -56,12 +56,33 @@
                                       {{ $cart_item['discount'] }} %
                                     </td>
                                     <td class="shoping__cart__quantity">
-                                        <div class="quantity">
+                                        <div class="d-flex justify-content-center">
+                                        <form action="cartupdatem" method="post" id="qform">
+                                                 @csrf
+                                                <input class="d-none" type="text" name="id" value="{{$cart_item['id']}}">
+                                                <input class="d-none" type="text" name="quantity" value="{{ $cart_item['quantity'] }}">
+                                                
+                                                    <button type="submit" class="btn btn-secondary" name="minus">-</button>
+                                        </form>
+                                        
+                                        <input type="text" style="width:2.5rem" value="{{ $cart_item['quantity'] }}" class="form-control" readonly>
+
+                                        <form action="cartupdatep" method="post" id="qform">
+                                                 @csrf
+                                                <input class="d-none" type="text" name="id" value="{{$cart_item['id']}}">
+                                                <input class="d-none" type="text" name="quantity" value="{{ $cart_item['quantity'] }}">
+                                              
+                                                    <button type="submit" class="btn btn-secondary" name="plus">+</button>
+                                        </form>
+
+                                                </div>
+
+                                        <!-- <div class="quantity">
                                             <div class="pro-qty">
-                                                    <input type="number" min='1' id="q" name="quantity" value="{{ $cart_item['quantity'] }}">
+                                                    <input type="text" min='1' id="q" name="quantity" value="{{ $cart_item['quantity'] }}">
                                                
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </td>
                                     <td class="d-none">
                                         <form action="cartupdate" method="post" id="qform">
@@ -95,23 +116,13 @@
             
 
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-6">
                     <div class="shoping__cart__btns">
                         <a href="/products" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
                        
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="shoping__continue">
-                        <div class="shoping__discount">
-                            <h5>Discount Codes</h5>
-                            <form action="#">
-                                <input type="text" placeholder="Enter your coupon code">
-                                <button type="submit" class="site-btn">APPLY COUPON</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+                
                 <div class="col-lg-6">
                     <div class="shoping__checkout">
                         <h5>Cart Total</h5>

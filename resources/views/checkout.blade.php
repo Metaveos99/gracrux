@@ -20,55 +20,52 @@
             
             <div class="checkout__form">
                 <h4>Billing Details</h4>
-                <form action="#">
+                <form action="getorderdetails" method="post">
+                    @csrf
                     <div class="row">
                         <div class="col-lg-8 col-md-6">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>Fist Name<span>*</span></p>
-                                        <input type="text" required>
+                                        <input type="text" name="fname" required>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>Last Name<span>*</span></p>
-                                        <input type="text" required>
+                                        <input type="text" name="lname" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="checkout__input">
-                                <p>Country<span>*</span></p>
-                                <input type="text" required>
-                            </div>
-                            <div class="checkout__input">
                                 <p>Address<span>*</span></p>
-                                <input type="text" placeholder="Street Address" class="checkout__input__add" required>
-                                <input type="text" placeholder="Apartment, suite, unite ect (optinal)" required>
+                                <input type="text" name="street" placeholder="Street Address" class="checkout__input__add" required>
+                                <input type="text" name="apartment" placeholder="Apartment, suite, unite ect " required>
                             </div>
                             <div class="checkout__input">
                                 <p>Town/City<span>*</span></p>
-                                <input type="text" requirde>
+                                <input type="text" name="city" required>
                             </div>
                             <div class="checkout__input">
-                                <p>Country/State<span>*</span></p>
-                                <input type="text" required>
+                                <p>State<span>*</span></p>
+                                <input type="text" name="state" required>
                             </div>
                             <div class="checkout__input">
                                 <p>Postcode / ZIP<span>*</span></p>
-                                <input type="text" required>
+                                <input type="text" name="zip" required>
                             </div>
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>Phone<span>*</span></p>
-                                        <input type="number" minlength="10" maxlenght="13" required>
+                                        <input type="number" name="phone" minlength="10" maxlenght="13" required>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>Email<span>*</span></p>
-                                        <input type="email" required>
+                                        <input type="email" name="email" required>
                                     </div>
                                 </div>
                             </div>
@@ -89,7 +86,7 @@
                                     </div>
 
                                 </div>
-                                    @endforeach
+                                @endforeach
                                     
                                 <div class="checkout__order__subtotal">Subtotal <span>₹{{$total}}</span></div>
                                 <div class="checkout__order__subtotal">Delivery Charges <span>₹50</span></div>

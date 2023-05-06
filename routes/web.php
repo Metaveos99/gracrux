@@ -8,6 +8,7 @@ use App\Http\Controllers\Webcontroller;
 use App\Http\Controllers\Clientcontroller;
 use App\Http\Controllers\Cartcontroller;
 use App\Http\Controllers\Ordercontroller;
+use App\Http\Controllers\Adminordercontroller;
 
 use App\Http\Middleware\checklogin;
 use App\Http\Middleware\restrict;
@@ -50,7 +51,8 @@ Route::get('cart', [Cartcontroller::class,'cart']);
 
 Route::post('remove', [Cartcontroller::class,'remove']);
 
-Route::post('cartupdate', [Cartcontroller::class,'update']);
+Route::post('cartupdatep', [Cartcontroller::class,'updatep']);
+Route::post('cartupdatem', [Cartcontroller::class,'updatem']);
 
 
 
@@ -67,6 +69,10 @@ Route::get('/user-login', function () {
 
 
 Route::get('/checkout', [Ordercontroller::class,'check'])->middleware('restrict');
+
+Route::post('/getorderdetails', [Ordercontroller::class,'details'])->middleware('restrict');
+
+
 
 
 
@@ -104,6 +110,16 @@ Route::middleware([
     Route::get('/new',[Productcontroller::class,'aja'] );
     Route::post('/uppro',[Productcontroller::class,'proup'] )->name('uppro');
     Route::post('/upproimg',[Productcontroller::class,'proupimg'] )->name('upproimg');
+    
+    Route::get('/deliverydetails',[Adminordercontroller::class,'aja'] );
+    Route::get('/deliverystatus',[Adminordercontroller::class,'dstatus'] );
+    Route::get('/paymentstatus',[Adminordercontroller::class,'pstatus'] );
+    Route::post('/updatedeliverystatus',[Adminordercontroller::class,'updstatus'] );
+    Route::post('/updatepaymentstatus',[Adminordercontroller::class,'uppaystatus'] );
+    Route::get('/adminorders',[Adminordercontroller::class,'show'] )->name('adminorder');
+    Route::get('/admincancelorders',[Adminordercontroller::class,'canshow'] )->name('admincancelorder');
+    Route::get('/deliveredorders',[Adminordercontroller::class,'deliveredshow'] )->name('deliveredorder');
+    Route::get('/transactions',[Adminordercontroller::class,'transactions'] )->name('transactions');
 
 
 });

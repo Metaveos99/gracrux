@@ -116,12 +116,17 @@
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="extended-ui-perfect-scrollbar.html" class="menu-link">
+                  <a href="{{route('adminorder')}}" class="menu-link">
                     <div data-i18n="Perfect Scrollbar">Orders Placed</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="extended-ui-text-divider.html" class="menu-link">
+                  <a href="{{route('deliveredorder')}}" class="menu-link">
+                    <div data-i18n="Perfect Scrollbar">Completed Orders</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="{{route('admincancelorder')}}" class="menu-link">
                     <div data-i18n="Text Divider">Canceled Orders</div>
                   </a>
                 </li>
@@ -129,7 +134,7 @@
             </li>
 
             <li class="menu-item" id="admintrans">
-              <a href="icons-boxicons.html" class="menu-link">
+              <a href="{{route('transactions')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-rupee"></i>
                 <div data-i18n="Boxicons">Transactions</div>
               </a>

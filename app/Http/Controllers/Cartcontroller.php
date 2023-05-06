@@ -18,7 +18,7 @@ class Cartcontroller extends Controller
 
         if ($pq !=0) {
             // Get the current cart contents from the cookie, or an empty array if it doesn't exist
-            $cart = json_decode($req->cookie('cart', '[]', 60 * 24 * 30), true);
+            $cart = json_decode($req->cookie('cart', '[]'), true);
         
             // Check if the product is already in the cart
             $product_key = array_search($pid, array_column($cart, 'id'));
@@ -37,7 +37,7 @@ class Cartcontroller extends Controller
             $cart_json = json_encode($cart);
         
             // Store the updated cart in the cookie
-            $cookie = cookie('cart', $cart_json);
+            $cookie = cookie('cart', $cart_json, 60 * 24 * 30);
         
             return redirect()->back()->withCookie($cookie);
             
@@ -52,7 +52,7 @@ class Cartcontroller extends Controller
         $pid = $req->id;
     
         // Get the current cart contents from the cookie, or an empty array if it doesn't exist
-        $cart = json_decode($req->cookie('cart', '[]', 60 * 24 * 30), true);
+        $cart = json_decode($req->cookie('cart', '[]'), true);
     
         // Check if the product is already in the cart
         $product_key = array_search($pid, array_column($cart, 'id'));
@@ -67,7 +67,7 @@ class Cartcontroller extends Controller
             $cart_json = json_encode($cart);
     
             // Store the updated cart in the cookie
-            $cookie = cookie('cart', $cart_json);
+            $cookie = cookie('cart', $cart_json, 60 * 24 * 30);
     
             return redirect('cart')->withCookie($cookie);
         } 
@@ -76,12 +76,12 @@ class Cartcontroller extends Controller
     }
 
 
-        public function update(Request $request)
+        public function updatep(Request $request)
         
         {
             $cart = json_decode($request->cookie('cart'), true);
             $productId = $request->input('id');
-            $quantity = $request->input('quantity');
+            $quantity = $request->input('quantity') + 1;
 
             if ($quantity !=0) {
                 
@@ -104,8 +104,32 @@ class Cartcontroller extends Controller
         }
 
 
+        public function updatem(Request $request)
+        
+        {
+            $cart = json_decode($request->cookie('cart'), true);
+            $productId = $request->input('id');
+            $quantity = $request->input('quantity') - 1;
 
-
+            if ($quantity !=0) {
+                
+                foreach ($cart as &$item) {
+                    if ($item['id'] == $productId) {
+                        $item['quantity'] = $quantity;
+                    }
+                }
+                
+                $cart = array_values($cart);
+                $cartJson = json_encode($cart);
+                $cookie = cookie('cart', $cartJson, 1440);
+                
+                return redirect('cart')->withCookie($cookie);
+               
+            }else {
+                return redirect('cart');
+            }
+         
+        }
 
 
 
