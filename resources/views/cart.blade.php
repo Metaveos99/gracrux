@@ -50,7 +50,7 @@
                                         </div>
                                     </td>
                                     <td class="shoping__cart__price">
-                                    ₹ {{ $cart_item['price'] }}
+                                    ₹ {{ $cart_item['price']}}
                                     </td>
                                     <td class="shoping__cart__price" style="color:red">
                                       {{ $cart_item['discount'] }} %
@@ -61,8 +61,7 @@
                                                  @csrf
                                                 <input class="d-none" type="text" name="id" value="{{$cart_item['id']}}">
                                                 <input class="d-none" type="text" name="quantity" value="{{ $cart_item['quantity'] }}">
-                                                
-                                                    <button type="submit" class="btn btn-secondary" name="minus">-</button>
+                                                <button type="submit" class="btn btn-secondary" name="minus">-</button>
                                         </form>
                                         
                                         <input type="text" style="width:2.5rem" value="{{ $cart_item['quantity'] }}" class="form-control" readonly>
@@ -72,25 +71,14 @@
                                                 <input class="d-none" type="text" name="id" value="{{$cart_item['id']}}">
                                                 <input class="d-none" type="text" name="quantity" value="{{ $cart_item['quantity'] }}">
                                               
-                                                    <button type="submit" class="btn btn-secondary" name="plus">+</button>
+                                                <button type="submit" class="btn btn-secondary" name="plus">+</button>
                                         </form>
 
                                                 </div>
 
-                                        <!-- <div class="quantity">
-                                            <div class="pro-qty">
-                                                    <input type="text" min='1' id="q" name="quantity" value="{{ $cart_item['quantity'] }}">
-                                               
-                                            </div>
-                                        </div> -->
+                                        
                                     </td>
-                                    <td class="d-none">
-                                        <form action="cartupdate" method="post" id="qform">
-                                                 @csrf
-                                                <input class="d-none" type="text" name="id" value="{{$cart_item['id']}}">
-                                                <input type="text" min='1' id="qf" name="quantity">
-                                        </form>
-                                    </td>
+                                    
                                     <td class="shoping__cart__total">
                                     ₹ {{ $cart_item['total'] }}
                                     </td>
@@ -165,38 +153,7 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
 
-    <script>
-
-        $('.dec').click(function(){
-
-          
-
-            var q = Number($('#q').val())-1;
-
-            if (q == 0) {
-                $('#rem').click()
-            }else{
-                
-                $('#qf').val(q);
     
-                $('#qform').submit();
-            }
-
-
-        })
-
-        $('.inc ').click(function(){
-
-
-            var q = Number($('#q').val())+1;
-
-            $('#qf').val(q);
-
-            $('#qform').submit();
-
-        })
-
-    </script>
 
 
 </body>

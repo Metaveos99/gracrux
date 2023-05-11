@@ -22,7 +22,7 @@
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="admin/assets/img/favicon/favicon.ico" />
+    <link rel="shortcut icon" href="grafavicon.png" type="image/x-icon">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

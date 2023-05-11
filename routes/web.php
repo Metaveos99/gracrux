@@ -9,6 +9,7 @@ use App\Http\Controllers\Clientcontroller;
 use App\Http\Controllers\Cartcontroller;
 use App\Http\Controllers\Ordercontroller;
 use App\Http\Controllers\Adminordercontroller;
+use App\Http\Controllers\Admindashboardcontroller;
 
 use App\Http\Middleware\checklogin;
 use App\Http\Middleware\restrict;
@@ -45,7 +46,7 @@ Route::post('log', [Clientcontroller::class,'log'])->name('log');
 Route::get('logoutuser', [Clientcontroller::class,'out'])->name('out');
 
 
-Route::post('addtocart', [Cartcontroller::class,'add']);
+Route::get('addtocart', [Cartcontroller::class,'add']);
 
 Route::get('cart', [Cartcontroller::class,'cart']);
 
@@ -70,8 +71,11 @@ Route::get('/user-login', function () {
 
 Route::get('/checkout', [Ordercontroller::class,'check'])->middleware('restrict');
 
+Route::get('/your-orders', [Ordercontroller::class,'userorders'])->middleware('restrict');
+
 Route::post('/getorderdetails', [Ordercontroller::class,'details'])->middleware('restrict');
 
+Route::post('/trackorder', [Ordercontroller::class,'track'])->middleware('restrict');
 
 
 
@@ -83,9 +87,9 @@ Route::middleware([
     'verified'
 ])->group(function () {
 
-    Route::get('/adminhome', function () {
-        return view('admins.index');
-    })->name('adminhome');
+    Route::get('/adminhome', [Admindashboardcontroller::class, 'index'])->name('adminhome');
+
+    Route::get('/users', [Admindashboardcontroller::class, 'users'])->name('users');
     
     Route::get('/adminupdatepassword', function () {
         return view('admins.updatepassword');

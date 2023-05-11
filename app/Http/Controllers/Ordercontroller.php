@@ -190,6 +190,39 @@ class Ordercontroller extends Controller
     }
 
 
+
+    function userorders(){
+
+        $email = session('userid');
+
+        $d = customer::where('email',$email)->first();
+
+        $id = $d->id;
+
+
+        $orders = Orderdetail::where('user_id',$id)->get();
+
+
+        return view('yourorders',['orders'=>$orders]);
+
+
+
+    }
+
+
+    function track(Request $req){
+
+        $id = $req->oid;
+
+        $orders = Orderdetail::where('id',$id)->first();
+
+
+
+        return view('track',['tr'=>$orders]);
+
+    }
+
+
     
 
 

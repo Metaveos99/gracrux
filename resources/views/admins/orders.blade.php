@@ -186,7 +186,6 @@
                           <select name="status" id="dstatus" class="form-control">
                             <option value="Ordered">Ordered</option>
                             <option value="Shipped">Shipped</option>
-                            <option value="In Transit">In Transit</option>
                             <option value="Out For Delivery">Out For Delivery</option>
                             <option value="Delivered">Delivered</option>
                             <option value="Cancelled">Cancelled</option>

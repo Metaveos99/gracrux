@@ -66,6 +66,7 @@
                 <div class="col-lg-12">
                     <div class="section-title">
                         <h2>Featured Product</h2>
+                        
                     </div>
                     
                 </div>
@@ -80,13 +81,13 @@
                                 <li><a href="details/{{$pr->name}}"><i class="fa fa-eye"></i></a></li>
                                 <li>
 
-                                <form action="/addtocart" method="post">
+                                <form action="/addtocart" method="post" class="pf">
 
                                         @csrf
 
-                                        <input class="d-none" type="text" value="1" name="qua" id="qua">
+                                        <input class="d-none qa" type="text" value="1" name="qua" id="qua">
 
-                                        <button class="btn rounded-circle" style="background-color:white;" type="submit" name="id" value="{{$pr->id}}" ><i class="fa fa-shopping-cart"></i></button>
+                                        <button class="btn rounded-circle iod" data-value="{{$pr->id}}" style="background-color:white;" type="submit" name="id" value="{{$pr->id}}" ><i class="fa fa-shopping-cart"></i></button>
 
                                     </form>
                                     
@@ -151,6 +152,42 @@
     <script>
         document.getElementById('homenav').classList.add('active');
     </script>
+
+    <script>
+       $(document).ready(function(){
+
+        $('.pf').on('submit',function (e) {
+            e.preventDefault();
+
+           
+
+        })
+
+        $(".iod").click(function() {
+            var id = JSON.parse($(this).attr("data-value"));
+            var qua = 1;
+
+            $.get("addtocart", {
+                qua: JSON.stringify(qua),
+                id: JSON.stringify(id)
+            }, function(response) {
+        
+                var so = $('#soap').html();
+                $('#soap').html(Number(so)+1);
+                $('#soap1').html(Number(so)+1);
+                
+              
+
+            });
+
+            
+
+        });
+
+
+       });
+    </script>
+    
 
 </body>
 

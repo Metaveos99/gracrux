@@ -133,6 +133,13 @@
               </ul>
             </li>
 
+            <li class="menu-item" id="adminus">
+              <a href="{{route('users')}}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-user"></i>
+                <div data-i18n="Boxicons">Users</div>
+              </a>
+            </li>
+
             <li class="menu-item" id="admintrans">
               <a href="{{route('transactions')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-rupee"></i>

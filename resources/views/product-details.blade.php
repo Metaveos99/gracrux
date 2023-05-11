@@ -61,16 +61,16 @@
                         <div class="product__details__price">₹ <del style="color:#ff000082;"> {{$pro['price']}} </del> {{$pro['dprice']}} /-</div>
                         <div class="product__details__price">You Save ₹ {{$t}} ({{$pro->discount}}%)</div>
                         <p> {{$pro['description']}} </p>
-                        <form action="/addtocart" method="post">
+                        <form action="/addtocart" method="post" class="pf">
                             @csrf
                         <div class="product__details__quantity">
                             <div class="quantity">
                                 <div class="pro-qty">
-                                    <input type="text" onchange="validity.valid||(value='');" min="1" value="1" name="qua" id="qua">
+                                    <input type="text" class="qa" value="1" name="qua" id="qua">
                                 </div>
                             </div>
                         </div>
-                        <button  class="btn primary-btn " type="submit" name="id" id="addtocart" value="{{$pro->id}}">ADD TO CART</button>
+                        <button  class="btn primary-btn iod" data-value="{{$pro->id}}" type="submit" name="id" id="addtocart" value="{{$pro->id}}">ADD TO CART</button>
                        
                     </form>
                         
@@ -109,13 +109,13 @@
                             <ul class="product__item__pic__hover">
                                 <li><a href="{{$r->name}}"><i class="fa fa-eye"></i></a></li>
                                 <li>
-                                    <form action="/addtocart" method="post">
+                                    <form action="/addtocart" method="post" class="pf">
 
                                         @csrf
 
-                                        <input class="d-none" type="number"   value="1" name="qua" id="qua">
+                                        <input class="d-none qa" type="number"   value="1" name="qua" id="qua">
 
-                                        <button class="btn rounded-circle" style="background-color:white;" type="submit" name="id" value="{{$r->id}}" ><i class="fa fa-shopping-cart"></i></button>
+                                        <button class="btn rounded-circle iod" data-value="{{$r->id}}" style="background-color:white;" type="submit" name="id" value="{{$r->id}}" ><i class="fa fa-shopping-cart"></i></button>
 
                                     </form>
                                     
@@ -161,7 +161,42 @@
      document.getElementById('shopnav').classList.add('active');
 </script>
 
+<script>
+       $(document).ready(function(){
 
+        $('.pf').on('submit',function (e) {
+            e.preventDefault();
+
+           
+
+        })
+
+        $(".iod").click(function() {
+            var id = JSON.parse($(this).attr("data-value"));
+            var qua = Number($('.qa').val());
+
+    
+
+            $.get("/addtocart", {
+                qua: JSON.stringify(qua),
+                id: JSON.stringify(id)
+            }, function(response) {
+        
+                var so = $('#soap').html();
+                $('#soap').html(Number(so)+1);
+                $('#soap1').html(Number(so)+1);
+                
+              
+
+            });
+
+            
+
+        });
+
+
+       });
+    </script>
 
 
 </body>

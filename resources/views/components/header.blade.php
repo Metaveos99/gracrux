@@ -22,7 +22,7 @@ $items_count = count($cart);
         </div>
         <div class="humberger__menu__cart">
             <ul>
-                <li><a href="/cart"><i class="fa fa-shopping-bag"></i> <span>{{ $items_count }}</span></a></li>
+                <li><a href="/cart"><i class="fa fa-shopping-bag"></i> <span id="soap1">{{ $items_count }}</span></a></li>
             </ul>
             
         </div>
@@ -44,6 +44,7 @@ $items_count = count($cart);
             <ul>
                 <li id="homenav"><a href="/">Home</a></li>
                 <li id="shopnav"><a href="/products">Products</a></li>
+                <li id="your-orders"><a href="/your-orders">My Orders</a></li>
                 <li id="contactnav"><a href="/contact">Contact</a></li>
             </ul>
         </nav>
@@ -66,7 +67,7 @@ $items_count = count($cart);
         <div class="header__top">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-6 col-md-6">
+                    <div class="col-lg-6 col-md-6 d-flex align-items-center">
                         <div class="header__top__left">
                             <ul>
                                 <li><i class="fa fa-envelope"></i> akastwar@gmail.com</li>
@@ -89,7 +90,7 @@ $items_count = count($cart);
                                     <ul>
                                         <li><a href="#"><i class="fa fa-user"></i> {{session('useridname')}}</a>
                                             <ul class="header__menu__dropdown">
-                                                <li><a href="">Orders</a></li>
+                                                <li><a href="your-orders">Orders</a></li>
                                                 <li><a href="{{route('out')}}">Log Out</a></li>
                                             </ul>
                                         </li>
@@ -111,14 +112,15 @@ $items_count = count($cart);
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="/"><h2 class="h2"> <b>Gracrux</b> </h2></a>
+                        <a href="/"><img style="width:14rem" src="/gralogo.png" alt="Logo"></a>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6 ">
                     <nav class="header__menu">
                         <ul>
                             <li id="homenav"><a href="/">Home</a></li>
                             <li id="shopnav"><a href="/products">Products</a></li>
+                            <li id="your-orders"><a href="/your-orders">My Orders</a></li>
                             <li id="contactnav"><a href="/contact">Contact</a></li>
                         </ul>
                     </nav>
@@ -126,7 +128,7 @@ $items_count = count($cart);
                 <div class="col-lg-3">
                     <div class="header__cart" id="bag">
                         <ul>
-                            <li><a href="/cart"><i class="fa fa-shopping-bag"></i> <span>{{ $items_count }}</span></a></li>
+                            <li><a href="/cart"><i class="fa fa-shopping-bag"></i> <span id="soap" >{{ $items_count }}</span></a></li>
                         </ul>
                     </div>
                 </div>
