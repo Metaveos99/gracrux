@@ -14,6 +14,7 @@ use App\Http\Controllers\Admindashboardcontroller;
 use App\Http\Middleware\checklogin;
 use App\Http\Middleware\restrict;
 
+use App\Models\category;
 
 
 /*
@@ -100,11 +101,18 @@ Route::middleware([
     })->name('dashadminprofileboard');
     
     Route::get('/addproducts', function () {
-        return view('admins.addproducts');
+        $cats = category::all();
+        return view('admins.addproducts',["cats"=>$cats]);
     })->name('addproducts');
 
     Route::post('/adminpassword',[Usercontroller::class,'updatepass'] )->name('updateadminpass');
     Route::post('/adprofileup',[Usercontroller::class,'updaterpro'] )->name('adprofileup');
+
+
+    Route::get('/category',[Productcontroller::class,'cat'] )->name('category');
+    Route::post('/addcategory',[Productcontroller::class,'addcat'] )->name('addcategory');
+    Route::post('/delcategory',[Productcontroller::class,'delcat'] )->name('delcategory');
+
     Route::post('/addproduct',[Productcontroller::class,'add'] )->name('add');
     Route::get('/allproducts',[Productcontroller::class,'display'] )->name('all');
     Route::get('/removeproduct',[Productcontroller::class,'delete'] )->name('del');

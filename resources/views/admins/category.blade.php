@@ -15,7 +15,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Delivered Orders</title>
+    <title>Add Category</title>
 
     <meta name="description" content="" />
 
@@ -69,56 +69,102 @@
 
           <x-navbar/>
 
-            <div class="container mt-5">
-            <div class="card">
-                <h5 class="card-header">Delivered Orders</h5>
-                <div class="table-responsive text-nowrap p-1">
-                  <table class="table " id="example1">
-                    <thead>
-                      <tr>
-                        <th>Order Id</th>
-                        <th>Product Name</th>
-                        <th>Price</th>
-                        <th>Discount</th>
-                        <th>Quantity</th>
-                        <th>Total</th>
-                        <th>Status</th>
-                        <th>Order Date</th>
-                        <th>Delivery Date</th>
-                      </tr>
-                    </thead>
-                    <tbody class="table-border-bottom-0">
-
-                      @foreach ($data as $pro )
-
-                      <tr>
-                        <td>{{$pro->order_id}}</td>
-                        <td style="max-width:1rem; overflow-wrap: break-word; white-space: normal;">{{$pro->productname}}</td>
-                        <td>{{$pro->price}}</td>
-                        <td>{{$pro->discount}}</td>
-                        <td>{{$pro->quantity}}</td>
-                        <td>{{$pro->total}}</td>
-                        <td>{{$pro->status}}</td>
-                        <td>{{$pro->order_date}}</td>
-                        <td>
-                          {{$pro->delivery_date}}
-                        </td>
-                        
-                      </tr>
-                        
-                      @endforeach
-
-                   
-                      
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-              <!--/ Basic Bootstrap Table -->
-            </div>
           
+          <div class="container mt-5">
+          <div class="card mb-4">
+                @if (session('success'))
+
+                <div class="alert alert-success">
+                  <span class="text-dark">
+                    {{session('success')}}
+                  </span>
+                </div>
+
+                @elseif (session('fail'))
+                <div class="alert alert-danger">
+                  <span class="text-dark">
+                    {{session('fail')}}
+                  </span>
+                </div>
+
+                @endif
+
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                      <h5 class="mb-0">Add Category</h5> 
+                     
+                    </div>
+                    <div class="card-body">
+                      <form action="{{route('addcategory')}}" method="post">
+                        @csrf
+
+                        <div class="row d-flex align-items-end">
+                          <div class="col-md-8">
+                            <div class="mb-3">
+                              <label class="form-label" for="basic-default-fullname">Category Name</label>
+                              <input type="text" name="cname" class="form-control" id="basic-default-fullname" placeholder="Hair Oil" required/>
+                            </div>
+
+                          </div>
+
+                          <div class="col-md-4 mb-3">
+                            <button type="submit" class="btn btn-primary">Add</button>
+                          </div>
+
+                        </div>
+                        
+                      </form>
+                    </div>
+                  </div>
 
 
+                  <div class="card">
+                        <h5 class="card-header">Categories</h5>
+                        <div class="table-responsive text-nowrap p-1">
+                          <table class="table " id="example1">
+                            <thead>
+                              <tr>
+                                <th>Sr</th>
+                                <th>Name</th>
+                                <th>Action</th>
+                              </tr>
+                            </thead>
+                            <tbody class="table-border-bottom-0">
+                            <span class="d-none">  {{$a=0}}
+                             </span>
+                              @foreach ($data as $cat )
+                              <span class="d-none">
+                                {{++$a}}
+                              </span> 
+                              <tr>
+                                <td>{{$a}}</td>
+                                <td>{{$cat['name']}}</td>
+                                <td>
+                                  <form action="{{route('delcategory')}}" method="post">
+                                    @csrf
+                                    <button type="submit" name="delcat"
+                                    value="{{$cat['id']}}" class="btn btn-danger">Delete</button>
+                                  </form>
+                                </td>
+        
+                              </tr>
+                                
+                              @endforeach
+        
+                           
+                              
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                      <!--/ Basic Bootstrap Table -->
+                    </div>
+
+
+          </div>
+
+
+          
+ 
             
 
             
@@ -134,13 +180,6 @@
       <div class="layout-overlay layout-menu-toggle"></div>
     </div>
     <!-- / Layout wrapper -->
-
-
-
-
-
-
-
 
     
 
@@ -166,8 +205,11 @@
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 
+    <script>
+      document.getElementById('admincat').classList.add('active')
+    </script>
 
-    <!-- DataTables  & Plugins -->
+  <!-- DataTables  & Plugins -->
 <script src="admin/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
 <script src="admin/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
@@ -200,16 +242,6 @@
     });
   });
 </script>
-
-
-    <script>
-      document.getElementById('adminorders').classList.add('active')
-    </script>
-
-
-  
-
-
 
 
   </body>

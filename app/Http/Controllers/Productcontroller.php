@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Product;
+use App\Models\category;
 
 class Productcontroller extends Controller
 {
@@ -167,8 +168,36 @@ class Productcontroller extends Controller
 
 
 
+    function cat(){
+
+        $cat = category::all();
+
+        return view('admins.category',["data"=>$cat]);
+
+    }
 
 
+    function addcat(Request $req){
+
+        $cat = new category;
+
+        $cat->name=$req->cname;
+
+        $cat->save();
+
+        return redirect('category')->with('success',"Added Successfully");
+
+    }
+
+    function delcat(Request $req){
+
+        $cat = category::where('id',$req->delcat);
+
+        $cat->delete();
+
+        return redirect('category')->with('fail',"Deleted Successfully");
+
+    }
 
 
 

@@ -18,13 +18,10 @@
     totalRevenueChartOptions = {
       series: [
         {
-          name: '2021',
-          data: [18, 7, 15, 29, 18, 12, 9]
+          name: year,
+          data: jss
         },
-        {
-          name: '2020',
-          data: [-13, -18, -9, -14, -5, -17, -15]
-        }
+        
       ],
       chart: {
         height: 300,
@@ -35,7 +32,7 @@
       plotOptions: {
         bar: {
           horizontal: false,
-          columnWidth: '33%',
+          columnWidth: '53%',
           borderRadius: 12,
           startingShape: 'rounded',
           endingShape: 'rounded'
@@ -78,7 +75,7 @@
         }
       },
       xaxis: {
-        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul','Aug','Sept','Oct','Nov','Dec'],
         labels: {
           style: {
             fontSize: '13px',
@@ -184,7 +181,7 @@
             plotOptions: {
               bar: {
                 borderRadius: 10,
-                columnWidth: '35%'
+                columnWidth: '52%'
               }
             }
           }
@@ -195,7 +192,7 @@
             plotOptions: {
               bar: {
                 borderRadius: 10,
-                columnWidth: '28%'
+                columnWidth: '52%'
               }
             }
           }
@@ -206,7 +203,7 @@
             plotOptions: {
               bar: {
                 borderRadius: 10,
-                columnWidth: '32%'
+                columnWidth: '52%'
               }
             }
           }
@@ -217,7 +214,7 @@
             plotOptions: {
               bar: {
                 borderRadius: 10,
-                columnWidth: '37%'
+                columnWidth: '57%'
               }
             }
           }
@@ -228,7 +225,7 @@
             plotOptions: {
               bar: {
                 borderRadius: 10,
-                columnWidth: '45%'
+                columnWidth: '57%'
               }
             }
           }
@@ -239,7 +236,7 @@
             plotOptions: {
               bar: {
                 borderRadius: 10,
-                columnWidth: '52%'
+                columnWidth: '72%'
               }
             }
           }
@@ -250,7 +247,7 @@
             plotOptions: {
               bar: {
                 borderRadius: 10,
-                columnWidth: '60%'
+                columnWidth: '70%'
               }
             }
           }
@@ -494,7 +491,7 @@
     incomeChartConfig = {
       series: [
         {
-          data: [24, 21, 30, 22, 42, 26, 35, 29]
+          data: or
         }
       ],
       chart: {
@@ -525,7 +522,7 @@
           {
             fillColor: config.colors.white,
             seriesIndex: 0,
-            dataPointIndex: 7,
+            dataPointIndex: month,
             strokeColor: config.colors.primary,
             strokeWidth: 2,
             size: 6,
@@ -558,7 +555,7 @@
         }
       },
       xaxis: {
-        categories: ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+        categories: ['','Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul','Aug','Sep','Oct','Nov','Dec'],
         axisBorder: {
           show: false
         },
@@ -577,8 +574,8 @@
         labels: {
           show: false
         },
-        min: 10,
-        max: 50,
+        min: 0,
+        max: max,
         tickAmount: 4
       }
     };

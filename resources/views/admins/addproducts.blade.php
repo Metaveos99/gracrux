@@ -20,7 +20,7 @@
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="admin/assets/img/favicon/favicon.ico" />
+    <link rel="shortcut icon" href="grafavicon.png" type="image/x-icon">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -117,7 +117,11 @@
 
                         <div class="mb-3">
                           <label class="form-label" for="basic-default-company">Category</label>
-                          <input type="text" name="category" class="form-control" id="basic-default-company" placeholder="Oil"required />
+                          <select name="category" class="form-control" required>
+                            @foreach ($cats as $cat )
+                            <option value="{{$cat->name}}">{{$cat->name}}</option>
+                            @endforeach
+                          </select>
                         </div>
                         
                         <div class="mb-3">
