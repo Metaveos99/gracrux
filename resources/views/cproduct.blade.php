@@ -26,7 +26,7 @@
 
     <x-header/>
 
-    
+    <x-wapp/>
 
     
 
@@ -117,7 +117,7 @@
         </div>
     </section>
     <!-- Product Section End -->
-
+    <x-itemadded/>
     <!-- Footer Section Begin -->
     <x-footer/>
     <!-- Footer Section End -->
@@ -172,7 +172,11 @@
                 var so = $('#soap').html();
                 $('#soap').html(Number(so)+1);
                 $('#soap1').html(Number(so)+1);
-                
+                $('#itemnotification').show();
+              
+                setTimeout(() => {
+                    $('#itemnotification').hide();
+                }, 2000);
 
             });
 

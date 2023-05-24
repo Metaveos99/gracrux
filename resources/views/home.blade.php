@@ -4,6 +4,7 @@
 <head>
 <x-headlinks/>
 
+
 <style>
     .trunc{
         overflow:hidden;
@@ -11,7 +12,6 @@
         text-overflow:ellipsis;
         
     }
-
     
 </style>
 
@@ -26,29 +26,51 @@
 
     <x-header/>
 
-    <section>
-        <div class="container mb-5">
-            <div class="hero__item set-bg" data-setbg="img/hero/ban.jpg">
-                <div class="hero__text">
-                    
-                    <h2>Fresh Herbal Products <br />100% Pure</h2>
-                    <p class="text-white">Be Chemically Free</p>
-                    <a href="/products" class="primary-btn">SHOP NOW</a>
-                </div>
-            </div>
-        </div>
-    </section>
+   
+    <x-wapp/>
     
 
+    <section>
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                 <img class="d-block w-100" src="/gbanner23.jpg" alt="First slide">
+                </div>
+                <div class="carousel-item">
+                <img class="d-block w-100" src="/BANNER3.jpg" alt="Second slide">
+                
+                </div>
+                <div class="carousel-item">
+                <img class="d-block w-100" src="/gbanner24.jpg" alt="Third slide">
+                
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </section>
+
+
     <!-- Categories Section Begin -->
-    <section class="categories">
+    <section class="categories mt-5">
         <div class="container">
             <div class="row">
                 <div class="categories__slider owl-carousel">
                     @foreach ($pro as $p )
                     <div class="col-lg-3">
                         <div class="categories__item set-bg" data-setbg="{{$p->img1}}">
-                            <h5 ><a href="details/{{$p->name}}" class="trunc">{{$p->name}}</a></h5>
+                            <h5 ><a href="details/{{$p->name}}" class="trunc bg-white">{{$p->name}}</a></h5>
                         </div>
                     </div>
                     @endforeach
@@ -96,7 +118,7 @@
                             </ul>
                         </div>
                         <div class="featured__item__text">
-                            <h6 class="trunc"><a href="#">{{$pr->name}}</a></h6>
+                            <h6 class="trunc"><a href="details/{{$pr->name}}">{{$pr->name}}</a></h6>
                             <h5 class="mb-1"><del style="color:#1c1c1c80;">₹ {{$pr->price}}</del></h5>
                             <h5 class="mb-1">₹ {{$pr->dprice}} /-</h5>
                             <h6 class="mb-1" style="color:red;">{{$pr->discount}}% off</h6>
@@ -109,6 +131,8 @@
         </div>
     </section>
     <!-- Featured Section End -->
+
+    
 
     <!-- Banner Begin -->
     <div class="banner mb-5">
@@ -133,9 +157,8 @@
     </div>
     <!-- Banner End -->
 
-    
+    <x-itemadded/>
 
-    
     <x-footer/>
 
     <!-- Js Plugins -->
@@ -159,8 +182,6 @@
         $('.pf').on('submit',function (e) {
             e.preventDefault();
 
-           
-
         })
 
         $(".iod").click(function() {
@@ -175,11 +196,13 @@
                 var so = $('#soap').html();
                 $('#soap').html(Number(so)+1);
                 $('#soap1').html(Number(so)+1);
-                
+                $('#itemnotification').show();
               
+                setTimeout(() => {
+                    $('#itemnotification').hide();
+                }, 2000);
 
             });
-
             
 
         });

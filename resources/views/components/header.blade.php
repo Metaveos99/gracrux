@@ -65,7 +65,7 @@ $items_count = count($cart);
     <!-- Header Section Begin -->
     <header class="header">
         <div class="header__top">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-6 col-md-6 d-flex align-items-center">
                         <div class="header__top__left">
@@ -117,7 +117,7 @@ $items_count = count($cart);
                 </div>
                 <div class="col-lg-6 ">
                     <nav class="header__menu">
-                        <ul>
+                        <ul class="hdlinks">
                             <li id="homenav"><a href="/">Home</a></li>
                             <li id="shopnav"><a href="/products">Products</a></li>
                             <li id="your-orders"><a href="/your-orders">My Orders</a></li>

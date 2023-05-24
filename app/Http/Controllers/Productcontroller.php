@@ -14,19 +14,19 @@ class Productcontroller extends Controller
 
 
         $img1= $req->file('img1')->store('public');
-        $img1= "storage" . substr_replace($img1, "", 0, 6);
+        $img1= "public/storage" . substr_replace($img1, "", 0, 6);
 
         $img2= $req->file('img2')->store('public');
-        $img2= "storage" . substr_replace($img2, "", 0, 6);
+        $img2= "public/storage" . substr_replace($img2, "", 0, 6);
 
         $img3= $req->file('img3')->store('public');
-        $img3= "storage" . substr_replace($img3, "", 0, 6);
+        $img3= "public/storage" . substr_replace($img3, "", 0, 6);
 
         $img4= $req->file('img4')->store('public');
-        $img4= "storage" . substr_replace($img4, "", 0, 6);
+        $img4= "public/storage" . substr_replace($img4, "", 0, 6);
 
         $img5= $req->file('img5')->store('public');
-        $img5= "storage" . substr_replace($img5, "", 0, 6);
+        $img5= "public/storage" . substr_replace($img5, "", 0, 6);
 
 
 
@@ -128,19 +128,19 @@ class Productcontroller extends Controller
 
 
         $img1= $req->file('img1')->store('public');
-        $img1= "storage" . substr_replace($img1, "", 0, 6);
+        $img1= "public/storage" . substr_replace($img1, "", 0, 6);
 
         $img2= $req->file('img2')->store('public');
-        $img2= "storage" . substr_replace($img2, "", 0, 6);
+        $img2= "public/storage" . substr_replace($img2, "", 0, 6);
 
         $img3= $req->file('img3')->store('public');
-        $img3= "storage" . substr_replace($img3, "", 0, 6);
+        $img3= "public/storage" . substr_replace($img3, "", 0, 6);
 
         $img4= $req->file('img4')->store('public');
-        $img4= "storage" . substr_replace($img4, "", 0, 6);
+        $img4= "public/storage" . substr_replace($img4, "", 0, 6);
 
         $img5= $req->file('img5')->store('public');
-        $img5= "storage" . substr_replace($img5, "", 0, 6);
+        $img5= "public/storage" . substr_replace($img5, "", 0, 6);
 
 
 

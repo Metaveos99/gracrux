@@ -5,7 +5,7 @@
                 <div class="col-md-4 ">
                     <div class="footer__about">
                         <div class="footer__about__logo">
-                            <a href="/"><h2 class="h2 text-bold"><b>Gracrux</b></h2></a>
+                            <a href="/"><img src="/grat.png" alt="logo" style="width:12rem"></a>
                         </div>
                         <ul>
                             <li>Address: 131, First Floor, Mastermind-1, Royal Palms Estate, Aarey Milk Colony, Goregaon(East), Mumbai-400065</li>
@@ -19,12 +19,10 @@
                     <div class="footer__widget">
                         <h6>Useful Links</h6>
                         <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">About Our Shop</a></li>
-                            <li><a href="#">Secure Shopping</a></li>
-                            <li><a href="#">Delivery infomation</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Our Sitemap</a></li>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/your-orders">My Orders</a></li>
+                            <li><a href="/cart">Cart</a></li>
+                            <li><a href="/contact">Contact</a></li>
                         </ul>
                         
                     </div>
@@ -41,7 +39,6 @@
                             <a href="#"><i class="fa fa-facebook"></i></a>
                             <a href="#"><i class="fa fa-instagram"></i></a>
                             <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-pinterest"></i></a>
                         </div>
                     </div>
                 </div>

@@ -22,7 +22,7 @@
     </div>
 
     <x-header/>
-
+    <x-wapp/>
     
      <!-- Product Details Section Begin -->
      <section class="product-details spad">
@@ -141,7 +141,7 @@
 
     
 
-  
+    <x-itemadded/>
 
     <!-- Footer Section Begin -->
     <x-footer/>
@@ -161,7 +161,7 @@
      document.getElementById('shopnav').classList.add('active');
 </script>
 
-<script>
+    <script>
        $(document).ready(function(){
 
         $('.pf').on('submit',function (e) {
@@ -186,7 +186,11 @@
                 $('#soap').html(Number(so)+1);
                 $('#soap1').html(Number(so)+1);
                 
+                $('#itemnotification').show();
               
+              setTimeout(() => {
+                  $('#itemnotification').hide();
+              }, 2000);
 
             });
 
@@ -196,6 +200,7 @@
 
 
        });
+       
     </script>
 
 

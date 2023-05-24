@@ -62,7 +62,7 @@ class Usercontroller extends Controller
 
         $path = $req->file('proimage')->store('public');
 
-        $path = "storage".substr_replace($path, "", 0, 6);
+        $path = "public/storage".substr_replace($path, "", 0, 6);
         
         $user->profile_photo_path=$path;
 

@@ -1,3 +1,3 @@
 <a href="/">
-   <h1> <b>Gracrux</b> </h1> 
+   <img src="/gralogo.png" style="width:15rem;" alt="">
 </a>

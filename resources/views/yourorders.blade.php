@@ -13,6 +13,8 @@
 
     <x-header/>
 
+    <x-wapp/>
+
     @if (count($orders)>0)
 
     <!-- Shoping Cart Section Begin -->
