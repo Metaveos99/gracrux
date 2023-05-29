@@ -38,6 +38,8 @@
                 
                     <div class="row">
 
+                    @if(count($pro) > 0)
+
                         @foreach ($pro as $pr )
                             
                                 <div class="col-lg-4 mb-3">
@@ -60,6 +62,13 @@
                                 </div>
 
                         @endforeach
+                    @else
+
+                    <div class="col-md-12 mb-5 mt-5">
+                        <h3 class="text-center">No Result Found</h3>    
+                    </div>
+                    @endif
+
                     </div>
                     
                 

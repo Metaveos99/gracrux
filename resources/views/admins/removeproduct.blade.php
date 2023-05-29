@@ -95,7 +95,7 @@
                       @foreach ($data as $pro )
 
                       <tr>
-                        <td>{{$pro['name']}}</td>
+                        <td style="max-width:1rem; overflow-wrap: break-word; white-space: normal;">{{$pro['name']}}</td>
                         <td>{{$pro['category']}}</td>
                         <td>{{$pro['price']}}</td>
                         <td>{{$pro['discount']}}</td>

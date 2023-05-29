@@ -65,7 +65,7 @@ $items_count = count($cart);
     <!-- Header Section Begin -->
     <header class="header">
         <div class="header__top">
-            <div class="container-fluid">
+            <div class="container">
                 <div class="row">
                     <div class="col-lg-6 col-md-6 d-flex align-items-center">
                         <div class="header__top__left">
@@ -79,18 +79,20 @@ $items_count = count($cart);
                         <div class="header__top__right">
                             <div class="header__top__right__social">
                                 <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="https://www.instagram.com/gracrux.pharma/"><i class="fa fa-instagram"></i></a>
                                 <a href="#"><i class="fa fa-twitter"></i></a>
                                 <a href="#"><i class="fa fa-linkedin"></i></a>
+                                <a href="#"><i class="fa fa-youtube"></i></a>
                             </div>
                             
                             <div class="header__top__right__auth">
                                 @if (session('userid'))
 
-                                <nav class="header__menu"> 
+                                <nav class="header__menu" style="padding:0px;"> 
                                     <ul>
                                         <li><a href="#"><i class="fa fa-user"></i> {{session('useridname')}}</a>
                                             <ul class="header__menu__dropdown">
-                                                <li><a href="your-orders">Orders</a></li>
+                                                <li><a href="your-orders">My Orders</a></li>
                                                 <li><a href="{{route('out')}}">Log Out</a></li>
                                             </ul>
                                         </li>

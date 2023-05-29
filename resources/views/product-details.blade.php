@@ -76,7 +76,7 @@
                         
                         <ul>
                             <li><b>Stock</b> <span>{{$pro['stock']}}</span></li>
-                            <li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li>
+                            <li><b>Shipping</b>Free</samp></span></li>
                             <li><b>Category</b> <span>{{$pro['category']}}</span></li>
                             
                         </ul>

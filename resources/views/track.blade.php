@@ -176,6 +176,23 @@
    
 
    @endif
+
+
+   @if ($tr->status !='Cancelled')
+
+        @if ($tr->status !='Delivered')
+
+        <section class='m-5'>
+            <div class="container d-flex justify-content-center">
+                <form action="/canceluserorder" method="post">
+                    @csrf
+                    <button type="submit" name="oid" value="{{$tr->order_id}}" class="btn btn-danger">Cancel Order</button>
+                </form>
+            </div>
+        </section>
+
+        @endif
+   @endif
     
 
     <!-- Footer Section Begin -->

@@ -2904,6 +2904,19 @@ ol {
 	letter-spacing: 2px;
 }
 
+.sgb{
+	background-image: url('/bg.jpg');
+	box-shadow: -6px 5px 53px -3px rgba(0,0,0,0.21);
+-webkit-box-shadow: -6px 5px 53px -3px rgba(0,0,0,0.21);
+-moz-box-shadow: -6px 5px 53px -3px rgba(0,0,0,0.21);
+}
+
+.sha{
+	box-shadow: 10px 10px 15px -7px rgba(0,0,0,0.25);
+-webkit-box-shadow: 10px 10px 15px -7px rgba(0,0,0,0.25);
+-moz-box-shadow: 10px 10px 15px -7px rgba(0,0,0,0.25);
+}
+
 /*--------------------------------- Responsive Media Quaries -----------------------------*/
 
 @media only screen and (min-width: 1200px) {

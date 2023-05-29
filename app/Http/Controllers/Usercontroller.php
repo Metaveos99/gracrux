@@ -60,9 +60,23 @@ class Usercontroller extends Controller
 
         $user = User::find(1);
 
-        $path = $req->file('proimage')->store('public');
+        // $path = $req->file('proimage')->store('public');
 
-        $path = "public/storage".substr_replace($path, "", 0, 6);
+        // $path = "public/storage".substr_replace($path, "", 0, 6);
+
+        // $file = $req->file('proimage');
+
+        $fm = $_FILES['proimage'];
+
+        $tm = $fm['tmp_name'];
+
+        $u = uniqid();
+
+        $path = 'storage/'.$u.'_'.$fm['name'];
+
+        move_uploaded_file($tm,$path);
+
+
         
         $user->profile_photo_path=$path;
 

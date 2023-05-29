@@ -222,6 +222,40 @@ class Ordercontroller extends Controller
 
     }
 
+    function cancel(Request $req){
+
+        $id = $req->oid;
+
+        $ords = Order::where('order_id',$id)->get();
+        $details = Orderdetail::where('order_id',$id)->get();
+
+        $date = date('Y-m-d');
+
+        foreach ($details as  $detail) {
+                
+            $detail->status = "Cancelled";
+            $detail->payment_status = "Refund Pending";
+            $detail->cancel_date = $date;
+    
+            $detail->save();
+
+        }
+
+        foreach ($ords as  $ord) {
+            
+            $ord->Status = "Cancelled";
+    
+            $ord->save();
+
+        }
+
+
+
+
+        return redirect('/your-orders');
+
+    }
+
 
     
 

@@ -78,6 +78,8 @@ Route::post('/getorderdetails', [Ordercontroller::class,'details'])->middleware(
 
 Route::post('/trackorder', [Ordercontroller::class,'track'])->middleware('restrict');
 
+Route::post('/canceluserorder', [Ordercontroller::class,'cancel'])->middleware('restrict');
+
 
 
 

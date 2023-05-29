@@ -29,14 +29,17 @@
     <x-wapp/>
     
 
+    <section>
+        <img src="/banner4.webp" alt="banner">
+    </section>
     
 
   <!-- Product Section Begin -->
   <section class="product spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-5">
-                    <div class="sidebar">
+        <div class="container-fluid">
+            <div class="row p-3">
+                <div class="col-lg-2 col-md-2">
+                    <div class="sidebar d-flex justify-content-center">
                         <div class="sidebar__item">
                             <h4>Filter</h4>
                             <ul>
@@ -52,7 +55,7 @@
                         
                     </div>
                 </div>
-                <div class="col-lg-9 col-md-7">
+                <div class="col-lg-9 col-md-9">
                     <div class="product__discount">
                         <div class="section-title product__discount__title">
                             <h2>Sale Off</h2>
@@ -78,7 +81,7 @@
 
                         @foreach ($pro as $pr )
                             
-                                <div class="col-lg-4 mb-3">
+                                <div class="col-lg-3 mb-2">
                                     <div class="product__discount__item">
                                         <div class="product__discount__item__pic set-bg"
                                             data-setbg="/{{$pr->img1}}">
@@ -103,7 +106,7 @@
                                         </div>
                                         <div class="product__discount__item__text">
                                             <span>{{$pr->category}}</span>
-                                            <h5 class="trunc"><a href="#">{{$pr->name}}</a></h5>
+                                            <h5 class="trunc"><a href="/details/{{$pr->name}}">{{$pr->name}}</a></h5>
                                             <div class="product__item__price">₹ {{$pr->dprice}} <span>₹{{$pr->price}}</span></div>
                                         </div>
                                     </div>

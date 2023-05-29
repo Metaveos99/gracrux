@@ -96,7 +96,7 @@
                       @foreach ($data as $pro )
 
                       <tr>
-                        <td>{{$pro['name']}}</td>
+                        <td style="max-width:1rem; overflow-wrap: break-word; white-space: normal;">{{$pro['name']}}</td>
                         <td>{{$pro['category']}}</td>
                         <td>{{$pro['price']}}</td>
                         <td>{{$pro['discount']}}</td>
@@ -271,23 +271,23 @@
 
                       <div class="mb-3">
                         <label for="formFile" class="form-label">Image 1</label>
-                        <input class="form-control" name="img1" accept=".jpg, .png, .jpeg" type="file" id="formFile1" required/>
+                        <input class="form-control" name="img1" accept=".jpg, .png, .jpeg, .webp" type="file" id="formFile1" required/>
                       </div>
                       <div class="mb-3">
                         <label for="formFile" class="form-label">Image 2</label>
-                        <input class="form-control" name="img2" accept=".jpg, .png, .jpeg" type="file" id="formFile2" required/>
+                        <input class="form-control" name="img2" accept=".jpg, .png, .jpeg, .webp" type="file" id="formFile2" required/>
                       </div>
                       <div class="mb-3">
                         <label for="formFile" class="form-label">Image 3</label>
-                        <input class="form-control" name="img3" accept=".jpg, .png, .jpeg" type="file" id="formFile3" required/>
+                        <input class="form-control" name="img3" accept=".jpg, .png, .jpeg, .webp" type="file" id="formFile3" required/>
                       </div>
                       <div class="mb-3">
                         <label for="formFile" class="form-label">Image 4</label>
-                        <input class="form-control" name="img4" accept=".jpg, .png, .jpeg" type="file" id="formFile4" required/>
+                        <input class="form-control" name="img4" accept=".jpg, .png, .jpeg, .webp" type="file" id="formFile4" required/>
                       </div>
                       <div class="mb-3">
                         <label for="formFile" class="form-label">Image 5</label>
-                        <input class="form-control" name="img5" accept=".jpg, .png, .jpeg" type="file" id="formFile5" required/>
+                        <input class="form-control" name="img5" accept=".jpg, .png, .jpeg, .webp" type="file" id="formFile5" required/>
                       </div>
                     
 

@@ -137,31 +137,31 @@
                           <div class="col-md-3">
                             <div class="mb-3">
                               <label for="formFile" class="form-label">Image 1</label>
-                              <input class="form-control" name="img1" accept=".jpg, .png, .jpeg" type="file" id="formFile" required/>
+                              <input class="form-control" name="img1" accept=".jpg, .png, .jpeg, .webp" type="file" id="formFile" required/>
                             </div>
                           </div>
                           <div class="col-md-3">
                             <div class="mb-3">
                               <label for="formFile" class="form-label">Image 2</label>
-                              <input class="form-control" name="img2" accept=".jpg, .png, .jpeg" type="file" id="formFile" required/>
+                              <input class="form-control" name="img2" accept=".jpg, .png, .jpeg, .webp" type="file" id="formFile" required/>
                             </div>
                           </div>
                           <div class="col-md-3">
                             <div class="mb-3">
                               <label for="formFile" class="form-label">Image 3</label>
-                              <input class="form-control" name="img3" accept=".jpg, .png, .jpeg" type="file" id="formFile" required/>
+                              <input class="form-control" name="img3" accept=".jpg, .png, .jpeg, .webp" type="file" id="formFile" required/>
                             </div>
                           </div>
                           <div class="col-md-3">
                             <div class="mb-3">
                               <label for="formFile" class="form-label">Image 4</label>
-                              <input class="form-control" name="img4" accept=".jpg, .png, .jpeg" type="file" id="formFile" required/>
+                              <input class="form-control" name="img4" accept=".jpg, .png, .jpeg, .webp" type="file" id="formFile" required/>
                             </div>
                           </div>
                           <div class="col-md-3">
                             <div class="mb-3">
                               <label for="formFile" class="form-label">Image 5</label>
-                              <input class="form-control" name="img5" accept=".jpg, .png, .jpeg" type="file" id="formFile" required/>
+                              <input class="form-control" name="img5" accept=".jpg, .png, .jpeg, .webp" type="file" id="formFile" required/>
                             </div>
                           </div>
                         </div>

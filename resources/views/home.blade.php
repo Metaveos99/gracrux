@@ -12,6 +12,8 @@
         text-overflow:ellipsis;
         
     }
+
+    .home-testimonial{background-color: #231834;height: 380px}.home-testimonial-bottom{background-color: #f8f8f8;transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;margin-top: 20px;margin-bottom: 0px;position: relative;height: 130px;top: 190px}.home-testimonial h3{color: var(--orange);font-size: 14px;font-weight: 500;text-transform: uppercase}.home-testimonial h2{color: white;font-size: 28px;font-weight: 700}.testimonial-inner{position: relative;top: -174px}.testimonial-pos{position: relative;top: 24px}.testimonial-inner .tour-desc{border-radius: 5px;padding: 40px}.color-grey-3{font-family: "Montserrat", Sans-serif;font-size: 14px;color: #6c83a2}.testimonial-inner img.tm-people{width: 60px;height: 60px;-webkit-border-radius: 50%;border-radius: 50%;-o-object-fit: cover;object-fit: cover;max-width: none}.link-name{font-family: "Montserrat", Sans-serif;font-size: 14px;color: #6c83a2}.link-position{font-family: "Montserrat", Sans-serif;font-size: 12px;color: #6c83a2}
     
 </style>
 
@@ -63,7 +65,7 @@
 
 
     <!-- Categories Section Begin -->
-    <section class="categories mt-5">
+    <section class="categories mt-5 border sgb" >
         <div class="container">
             <div class="row">
                 <div class="categories__slider owl-carousel">
@@ -83,11 +85,11 @@
 
     <!-- Featured Section Begin -->
     <section class="featured spad">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h2>Featured Product</h2>
+                        <h2>Featured Products</h2>
                         
                     </div>
                     
@@ -96,7 +98,7 @@
             <div class="row featured__filter justify-content-center">
 
                 @foreach ( $pro as $pr )
-                <div class="col-md-5 col-sm-6 mix oranges fresh-meat border m-2 ho ">
+                <div class="col-md-3 mix oranges fresh-meat border m-2 ho sha">
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="{{$pr->img1}}">
                             <ul class="featured__item__pic__hover">
@@ -119,8 +121,7 @@
                         </div>
                         <div class="featured__item__text">
                             <h6 class="trunc"><a href="details/{{$pr->name}}">{{$pr->name}}</a></h6>
-                            <h5 class="mb-1"><del style="color:#1c1c1c80;">₹ {{$pr->price}}</del></h5>
-                            <h5 class="mb-1">₹ {{$pr->dprice}} /-</h5>
+                            <h5 class="mb-1">₹ {{$pr->dprice}} /-<del style="color:#1c1c1c80;"> ₹ {{$pr->price}}</del></h5>
                             <h6 class="mb-1" style="color:red;">{{$pr->discount}}% off</h6>
                         </div>
                     </div>
@@ -132,23 +133,28 @@
     </section>
     <!-- Featured Section End -->
 
-    
+    <section>
+        <div class="container mb-5">
+            <img src="/gpage.webp" alt="certified" class="img-fluid">
+        </div>
+    </section>
 
-    <!-- Banner Begin -->
-    <div class="banner mb-5">
+
+<!-- Banner Begin -->
+<div class="banner mb-5">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="banner__pic">
-                        <a href="/products">
-                            <img style="height:25rem" src="img/banner/ban1.jpg" alt="">
+                        <a href="/details/PUSHT-ADE%20%7C%20MASSAGE%20OIL%20%7C%20100ML%20%7C%20ENRICHED%20WITH%20NATURAL%20VITAMINS%20A,D,E%20&%20OLIVE%20OIL">
+                            <img style="height:25rem" src="/pagebanner1.webp" alt="">
                         </a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="banner__pic">
-                        <a href="/products">
-                            <img style="height:25rem" src="img/banner/ban3.jpg" alt="">
+                        <a href="/details/THICK%20AND%20DENSE%20HAIR%20OIL%20%7C%20100%20ML%20%7C%20A%20COMPREHENSIVE%20HAIR%20OIL%20FORTIFIED%20WITH%2011%20ESSENTIALS%20OILS%20AND%2019%20HERBS">
+                            <img style="height:25rem" src="/pagebanner2.webp" alt="">
                         </a>
                     </div>
                 </div>
@@ -156,6 +162,60 @@
         </div>
     </div>
     <!-- Banner End -->
+
+    <section class="mb-5">
+        <div class="container-fluid text-center text-white p-3" style="height:20rem; background-color: #231834;">
+                    <div class="section-title">
+                        <h2>Testimonials</h2>
+                    </div>
+
+        <div >
+            <h2>Explore Our Clients Experience</h2>
+        </div>
+        </div>
+        <div class="container" style="margin-top:-7rem">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card p-2">
+                        <div class="d-flex justify-content-center">
+                            <img class="card-img-top" style="width:5rem; height:5rem; border-radius:100%" src="/test1.jpg" alt="Card image cap">
+                        </div>
+                        <div class="card-body text-center">
+                            
+                            <h5 class="card-title">Sulekha Mishra</h5>
+                            <p class="card-text">"I have been using Gracrux Herbal Products for a few years now and I have been very happy with the results. I have tried a variety of products and they have all been effective for me. I would definitely recommend Gracrux Herbal Products to anyone looking for a natural way to improve their health."</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card p-2">
+                        <div class="d-flex justify-content-center">
+                            <img class="card-img-top" style="width:5rem; height:5rem; border-radius:100%" src="/test2.jpg" alt="Card image cap">
+                        </div>
+                        <div class="card-body text-center">
+                            
+                            <h5 class="card-title">Harjeet Singh</h5>
+                            <p class="card-text">"I was skeptical at first about using herbal supplements, but I am so glad I gave Gracrux Herbal Products a try. I have been using their KABAZ relief product for a few weeks now and I have noticed a significant improvement in my pain levels. I would definitely recommend Gracrux Herbal Products to anyone who is looking for a natural way to relieve Abdominal Discomfort."</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card p-2">
+                        <div class="d-flex justify-content-center">
+                            <img class="card-img-top" style="width:5rem; height:5rem; border-radius:100%" src="/test3.jpg" alt="Card image cap">
+                        </div>
+                        <div class="card-body text-center">
+                            
+                            <h5 class="card-title">Monika Sharma</h5>
+                            <p class="card-text">"I have been using Gracrux Herbal Products for a few months now and I have been very impressed with the results. I have tried a variety of products for my skin problems, but nothing has worked as well as Gracrux Herbal Products, specially the Red Clean. It improve's Your skin significantly" </p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
 
     <x-itemadded/>
 

@@ -30,6 +30,9 @@ class Productcontroller extends Controller
 
 
 
+
+
+
         $product= new Product;
 
         $product->name=$req->pname;
@@ -39,11 +42,12 @@ class Productcontroller extends Controller
         $product->category=$req->category;
         $product->stock="Available";
         $product->description=$req->description;
-        $product->img1=$img1;
-        $product->img2=$img2;
-        $product->img3=$img3;
-        $product->img4=$img4;
-        $product->img5=$img5;
+
+        $product->img1=$img[0];
+        $product->img2=$img[1];
+        $product->img3=$img[2];
+        $product->img4=$img[3];
+        $product->img5=$img[4];
 
         $product->save();
 
@@ -144,7 +148,7 @@ class Productcontroller extends Controller
 
 
 
-        $product= Product::where('id',$req->sr);
+        $product= Product::where('id',$req->sr)->first();
 
         
         $product->img1=$img1;
