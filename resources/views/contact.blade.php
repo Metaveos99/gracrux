@@ -25,7 +25,7 @@
                     <div class="contact__widget">
                         <span class="icon_phone"></span>
                         <h4>Phone</h4>
-                        <p>+91 9920056165</p>
+                        <p>+91 9372692651</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 text-center">
@@ -46,7 +46,7 @@
                     <div class="contact__widget">
                         <span class="icon_mail_alt"></span>
                         <h4>Email</h4>
-                        <p>akastwar@gmail.com</p>
+                        <p>gracruxpharmaceuticals@gmail.com</p>
                     </div>
                 </div>
             </div>
@@ -63,7 +63,7 @@
             <div class="inside-widget">
                 <h4>Mumbai</h4>
                 <ul>
-                    <li>Phone: +91 9920056165</li>
+                    <li>Phone: +91 9372692651</li>
                     <li>Add:  131 First Floor, Mastermind-1</li>
                 </ul>
             </div>

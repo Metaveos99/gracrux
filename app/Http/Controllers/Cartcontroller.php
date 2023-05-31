@@ -34,12 +34,13 @@ class Cartcontroller extends Controller
             }
         
             // Convert the updated cart to a JSON string
+            $cart_count = count($cart);
             $cart_json = json_encode($cart);
         
             // Store the updated cart in the cookie
             $cookie = cookie('cart', $cart_json, 60 * 24 * 30);
         
-            return redirect()->back()->withCookie($cookie);
+            return response(['count'=>$cart_count])->withCookie($cookie);
             
         }else {
             return redirect()->back();

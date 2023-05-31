@@ -42,6 +42,7 @@ class Clientcontroller extends Controller
         if ($client) {
 
             session()->put('userid',$client->email);
+            session()->put('useridname',$client->name);
             
             return redirect('/');
 

@@ -11,6 +11,11 @@
         text-overflow:ellipsis;
         
     }
+
+    .set-bg{
+        cursor: pointer;
+    }
+
 </style>
 
 </head>
@@ -61,7 +66,7 @@
                         <div class="product__details__price">₹ <del style="color:#ff000082;"> {{$pro['price']}} </del> {{$pro['dprice']}} /-</div>
                         <div class="product__details__price">You Save ₹ {{$t}} ({{$pro->discount}}%)</div>
                         <p> {{$pro['description']}} </p>
-                        <form action="/addtocart" method="post" class="pf">
+                        <form action="/buynow" method="post" class="pf d-flex align-items-center flex-wrap">
                             @csrf
                         <div class="product__details__quantity">
                             <div class="quantity">
@@ -70,8 +75,8 @@
                                 </div>
                             </div>
                         </div>
-                        <button  class="btn primary-btn iod" data-value="{{$pro->id}}" type="submit" name="id" id="addtocart" value="{{$pro->id}}">ADD TO CART</button>
-                       
+                        <button  class="btn primary-btn iod d-flex align-items-center" data-value="{{$pro->id}}" type="button" name="id" id="addtocart" value="{{$pro->id}}"><i class="fa fa-shopping-cart fa-2x " aria-hidden="true"></i> <span class="ml-3">ADD TO CART </span></button>
+                        <button class="btn btn-outline-danger" type="submit" name="product_id" value="{{$pro->id}}"> <img src="/tags.GIF" style="width:2.2rem">  Buy Now</button>
                     </form>
                         
                         <ul>
@@ -105,7 +110,8 @@
                 @foreach ($rel as $r)
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="/{{$r->img1}}">
+                        
+                        <div class="product__item__pic set-bg" ondblclick="location.replace('{{$r->name}}')" data-setbg="/{{$r->img1}}">
                             <ul class="product__item__pic__hover">
                                 <li><a href="{{$r->name}}"><i class="fa fa-eye"></i></a></li>
                                 <li>
@@ -115,8 +121,8 @@
 
                                         <input class="d-none qa" type="number"   value="1" name="qua" id="qua">
 
-                                        <button class="btn rounded-circle iod" data-value="{{$r->id}}" style="background-color:white;" type="submit" name="id" value="{{$r->id}}" ><i class="fa fa-shopping-cart"></i></button>
-
+                                        <button class="btn rounded-circle iod" data-value="{{$r->id}}" style="background-color:white;" type="button" name="id" value="{{$r->id}}" ><i class="fa fa-shopping-cart"></i></button>
+                                        
                                     </form>
                                     
                             
@@ -164,12 +170,12 @@
     <script>
        $(document).ready(function(){
 
-        $('.pf').on('submit',function (e) {
-            e.preventDefault();
+        // $('.pf').on('submit',function (e) {
+        //     e.preventDefault();
 
            
 
-        })
+        // })
 
         $(".iod").click(function() {
             var id = JSON.parse($(this).attr("data-value"));
@@ -182,9 +188,9 @@
                 id: JSON.stringify(id)
             }, function(response) {
         
-                var so = $('#soap').html();
-                $('#soap').html(Number(so)+1);
-                $('#soap1').html(Number(so)+1);
+                $('#soap').html(response.count);
+                $('#soap1').html(response.count);
+                
                 
                 $('#itemnotification').show();
               

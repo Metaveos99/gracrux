@@ -56,7 +56,7 @@ $items_count = count($cart);
         </div>
         <div class="humberger__menu__contact">
             <ul>
-                <li><i class="fa fa-envelope"></i> akastwar@gmail.com</li>
+                <li><i class="fa fa-envelope"></i> gracruxpharmaceuticals@gmail.com</li>
             </ul>
         </div>
     </div>
@@ -70,7 +70,7 @@ $items_count = count($cart);
                     <div class="col-lg-6 col-md-6 d-flex align-items-center">
                         <div class="header__top__left">
                             <ul>
-                                <li><i class="fa fa-envelope"></i> akastwar@gmail.com</li>
+                                <li><i class="fa fa-envelope"></i> gracruxpharmaceuticals@gmail.com</li>
                                 
                             </ul>
                         </div>
@@ -179,7 +179,7 @@ $items_count = count($cart);
                                 <i class="fa fa-phone"></i>
                             </div>
                             <div class="hero__search__phone__text ">
-                                <h5>022 28490403</h5>
+                                <h5>+91 9372692651</h5>
                                 <span>Support 24/7</span>
                             </div>
                         </div>

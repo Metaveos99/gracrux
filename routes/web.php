@@ -72,6 +72,8 @@ Route::get('/user-login', function () {
 
 Route::get('/checkout', [Ordercontroller::class,'check'])->middleware('restrict');
 
+Route::post('/buynow', [Ordercontroller::class,'buynow'])->middleware('restrict');
+
 Route::get('/your-orders', [Ordercontroller::class,'userorders'])->middleware('restrict');
 
 Route::post('/getorderdetails', [Ordercontroller::class,'details'])->middleware('restrict');

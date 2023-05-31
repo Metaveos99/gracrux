@@ -13,6 +13,11 @@
         
     }
 
+    .set-bg{
+        cursor: pointer;
+    }
+
+
     
 </style>
 
@@ -29,7 +34,7 @@
     <x-wapp/>
 
     <section>
-        <img src="/banner4.webp" alt="banner">
+        <img src="/banner4a.webp" alt="banner">
     </section>
     
 
@@ -84,7 +89,7 @@
 
                         <div class="col-lg-3 mb-2">
                                     <div class="product__discount__item">
-                                        <div class="product__discount__item__pic set-bg"
+                                        <div class="product__discount__item__pic set-bg" ondblclick="location.replace('/details/{{$pr->name}}')"
                                             data-setbg="/{{$pr->img1}}">
                                             <div class="product__discount__percent">-{{$pr->discount}}%</div>
                                             <ul class="product__item__pic__hover">
@@ -172,9 +177,8 @@
                 id: JSON.stringify(id)
             }, function(response) {
         
-                var so = $('#soap').html();
-                $('#soap').html(Number(so)+1);
-                $('#soap1').html(Number(so)+1);
+                $('#soap').html(response.count);
+                $('#soap1').html(response.count);
                 $('#itemnotification').show();
               
                 setTimeout(() => {

@@ -13,7 +13,12 @@
         
     }
 
-    .home-testimonial{background-color: #231834;height: 380px}.home-testimonial-bottom{background-color: #f8f8f8;transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;margin-top: 20px;margin-bottom: 0px;position: relative;height: 130px;top: 190px}.home-testimonial h3{color: var(--orange);font-size: 14px;font-weight: 500;text-transform: uppercase}.home-testimonial h2{color: white;font-size: 28px;font-weight: 700}.testimonial-inner{position: relative;top: -174px}.testimonial-pos{position: relative;top: 24px}.testimonial-inner .tour-desc{border-radius: 5px;padding: 40px}.color-grey-3{font-family: "Montserrat", Sans-serif;font-size: 14px;color: #6c83a2}.testimonial-inner img.tm-people{width: 60px;height: 60px;-webkit-border-radius: 50%;border-radius: 50%;-o-object-fit: cover;object-fit: cover;max-width: none}.link-name{font-family: "Montserrat", Sans-serif;font-size: 14px;color: #6c83a2}.link-position{font-family: "Montserrat", Sans-serif;font-size: 12px;color: #6c83a2}
+    .set-bg{
+        cursor: pointer;
+    }
+
+
+    
     
 </style>
 
@@ -41,14 +46,14 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                 <img class="d-block w-100" src="/gbanner23.jpg" alt="First slide">
+                 <img class="d-block w-100" src="/gbanner23a.webp" alt="First slide">
                 </div>
                 <div class="carousel-item">
-                <img class="d-block w-100" src="/BANNER3.jpg" alt="Second slide">
+                <img class="d-block w-100" src="/BANNER3.webp" alt="Second slide">
                 
                 </div>
                 <div class="carousel-item">
-                <img class="d-block w-100" src="/gbanner24.jpg" alt="Third slide">
+                <img class="d-block w-100" src="/gbanner24a.webp" alt="Third slide">
                 
                 </div>
             </div>
@@ -71,7 +76,7 @@
                 <div class="categories__slider owl-carousel">
                     @foreach ($pro as $p )
                     <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="{{$p->img1}}">
+                        <div class="categories__item set-bg" onclick="location.replace('details/{{$p->name}}')" data-setbg="{{$p->img1}}">
                             <h5 ><a href="details/{{$p->name}}" class="trunc bg-white">{{$p->name}}</a></h5>
                         </div>
                     </div>
@@ -100,7 +105,7 @@
                 @foreach ( $pro as $pr )
                 <div class="col-md-3 mix oranges fresh-meat border m-2 ho sha">
                     <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="{{$pr->img1}}">
+                        <div class="featured__item__pic set-bg" ondblclick="location.replace('details/{{$pr->name}}')" data-setbg="{{$pr->img1}}">
                             <ul class="featured__item__pic__hover">
                                 <li><a href="details/{{$pr->name}}"><i class="fa fa-eye"></i></a></li>
                                 <li>
@@ -135,7 +140,7 @@
 
     <section>
         <div class="container mb-5">
-            <img src="/gpage.webp" alt="certified" class="img-fluid">
+            <img src="/PAGE12C.webp" alt="certified" class="img-fluid">
         </div>
     </section>
 
@@ -183,7 +188,7 @@
                         <div class="card-body text-center">
                             
                             <h5 class="card-title">Sulekha Mishra</h5>
-                            <p class="card-text">"I have been using Gracrux Herbal Products for a few years now and I have been very happy with the results. I have tried a variety of products and they have all been effective for me. I would definitely recommend Gracrux Herbal Products to anyone looking for a natural way to improve their health."</p>
+                            <p class="card-text">"I have been using Gracrux Herbal Products for a few months now and I have been very happy with the results. I have tried a variety of products and they have all been effective for me. I would definitely recommend Gracrux Herbal Products to anyone looking for a natural way to improve their health."</p>
                         </div>
                     </div>
                 </div>
@@ -195,7 +200,7 @@
                         <div class="card-body text-center">
                             
                             <h5 class="card-title">Harjeet Singh</h5>
-                            <p class="card-text">"I was skeptical at first about using herbal supplements, but I am so glad I gave Gracrux Herbal Products a try. I have been using their KABAZ relief product for a few weeks now and I have noticed a significant improvement in my pain levels. I would definitely recommend Gracrux Herbal Products to anyone who is looking for a natural way to relieve Abdominal Discomfort."</p>
+                            <p class="card-text">"I was skeptical at first about using herbal supplements, but I am so glad I gave Gracrux Herbal Products a try. I have been using their KABZ relief product for a few weeks now and I have noticed a significant improvement in my pain levels. I would definitely recommend Gracrux Herbal Products to anyone who is looking for a natural way to relieve Abdominal Discomfort."</p>
                         </div>
                     </div>
                 </div>
@@ -252,10 +257,9 @@
                 qua: JSON.stringify(qua),
                 id: JSON.stringify(id)
             }, function(response) {
-        
-                var so = $('#soap').html();
-                $('#soap').html(Number(so)+1);
-                $('#soap1').html(Number(so)+1);
+                
+                $('#soap').html(response.count);
+                $('#soap1').html(response.count);
                 $('#itemnotification').show();
               
                 setTimeout(() => {

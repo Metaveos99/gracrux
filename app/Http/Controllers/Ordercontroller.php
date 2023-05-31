@@ -64,6 +64,45 @@ class Ordercontroller extends Controller
     }
 
 
+    function buynow(Request $req){
+
+        $sr = $req->product_id;
+        $quantity = $req->qua;
+
+        if ($quantity > 0) {
+            
+            $product = Product::find($sr);
+    
+            $cart_items[] = [
+                'id' => $product->id,
+                'name' => $product->name,
+                'discount' => $product->discount,
+                'img' => $product->img1,
+                'price' => $product->price,
+                'quantity' => $quantity,
+                'total'=>$product->dprice*$quantity
+                
+            ];
+    
+            $total_price = $product->dprice*$quantity;
+    
+            return view('checkout',['cart'=> $cart_items,'total'=>$total_price]);
+        }else {
+           
+            return redirect()->back();
+
+        }
+
+
+
+    }
+
+
+
+
+
+
+
     function details(Request $req){
 
         $email = session('userid');

@@ -13,6 +13,11 @@
         
     }
 
+    .set-bg{
+        cursor: pointer;
+    }
+
+
     
 </style>
 
@@ -44,17 +49,30 @@
                             
                                 <div class="col-lg-4 mb-3">
                                     <div class="product__discount__item">
-                                        <div class="product__discount__item__pic set-bg"
+                                        <div class="product__discount__item__pic set-bg" ondblclick="location.replace('/details/{{$pr->name}}')"
                                             data-setbg="/{{$pr->img1}}">
                                             <div class="product__discount__percent">-{{$pr->discount}}%</div>
                                             <ul class="product__item__pic__hover">
                                                 <li><a href="/details/{{$pr->name}}"><i class="fa fa-eye"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                                <li>
+
+                                                <form action="/addtocart" method="post" class="pf">
+
+                                        @csrf
+
+                                        <input class="d-none qa" type="text" value="1" name="qua" id="qua">
+
+                                        <button class="btn rounded-circle iod" data-value="{{$pr->id}}" style="background-color:white;" type="submit" name="id" value="{{$pr->id}}" ><i class="fa fa-shopping-cart"></i></button>
+
+                                    </form>
+                                    
+
+                                                </li>
                                             </ul>
                                         </div>
                                         <div class="product__discount__item__text">
                                             <span>{{$pr->category}}</span>
-                                            <h5 class="trunc"><a href="#">{{$pr->name}}</a></h5>
+                                            <h5 class="trunc"><a href="/details/{{$pr->name}}">{{$pr->name}}</a></h5>
                                             <span class="d-none">{{ $t=round(($pr->price/100)*$pr->discount)}}  </span>
                                             <div class="product__item__price">₹ {{$pr->price - $t}} <span>₹{{$pr->price}}</span></div>
                                         </div>
@@ -76,7 +94,7 @@
         </div>
     </section>
     <!-- Product Section End -->
-
+    <x-itemadded/>
     <!-- Footer Section Begin -->
     <x-footer/>
     <!-- Footer Section End -->
@@ -106,8 +124,44 @@
 
     });
 
+    
+
 
 </script>
+
+<script>
+       $(document).ready(function(){
+
+        $('.pf').on('submit',function (e) {
+            e.preventDefault();
+
+
+        })
+
+        $(".iod").click(function() {
+            var id = JSON.parse($(this).attr("data-value"));
+            var qua = 1;
+
+            $.get("/addtocart", {
+                qua: JSON.stringify(qua),
+                id: JSON.stringify(id)
+            }, function(response) {
+        
+                $('#soap').html(response.count);
+                $('#soap1').html(response.count);
+                $('#itemnotification').show();
+              
+                setTimeout(() => {
+                    $('#itemnotification').hide();
+                }, 2000);
+
+            });
+
+        });
+
+
+       });
+    </script>
 
 
 </body>

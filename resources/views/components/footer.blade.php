@@ -9,9 +9,9 @@
                         </div>
                         <ul>
                             <li>Address: 131, First Floor, Mastermind-1, Royal Palms Estate, Aarey Milk Colony, Goregaon(East), Mumbai-400065</li>
-                            <li>Phone: +91 9920056165 </li>
-                            <li>Tel: 022 28490403</li>
-                            <li>Email: akastwar@gmail.com </li>
+                            <li>Phone: +91 9372692651 </li>
+                            
+                            <li>Email: gracruxpharmaceuticals@gmail.com </li>
                         </ul>
                     </div>
                 </div>
